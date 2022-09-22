@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: white; }
+
+.nav-signupOne {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6; }
+  .nav-signupOne .nav-logo {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    margin-left: 3%; }
+    .nav-signupOne .nav-logo a img {
+      padding: 25px 0 20px 0;
+      height: 45px; }
+  .nav-signupOne .signup {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    margin-right: 3%; }
+    .nav-signupOne .signup a {
+      font-family: Arial, Helvetica, sans-serif;
+      text-decoration: none;
+      color: #333; }
+      .nav-signupOne .signup a:hover {
+        text-decoration: underline; }
+      .nav-signupOne .signup a p {
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 90px; }
+
+.oneStep {
+  padding: 42px 0;
+  display: flex;
+  justify-content: center; }
+  .oneStep form {
+    width: 440px; }
+    .oneStep form .oneStep-text {
+      color: #333; }
+      .oneStep form .oneStep-text p {
+        font-size: .8rem;
+        letter-spacing: .05rem; }
+      .oneStep form .oneStep-text h1 {
+        margin-top: 4px;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: .02rem;
+        line-height: 2.5rem; }
+      .oneStep form .oneStep-text h2 {
+        margin-top: 12px;
+        font-size: 1.1rem;
+        font-weight: 400;
+        letter-spacing: .015rem; }
+    .oneStep form .oneStep-user {
+      margin-top: 30px; }
+      .oneStep form .oneStep-user .oneStep-email .user-email {
+        font-weight: 500;
+        letter-spacing: .02rem; }
+      .oneStep form .oneStep-user .oneStep-password {
+        margin-top: 18px;
+        position: relative; }
+        .oneStep form .oneStep-user .oneStep-password input {
+          height: 50px;
+          width: 430px;
+          padding: 10px 0 0 10px;
+          border: none;
+          box-shadow: inset 0 0 0 1px #8c8c8c;
+          font-size: 1rem;
+          border-radius: 3px;
+          cursor: text; }
+          .oneStep form .oneStep-user .oneStep-password input:focus-visible {
+            outline: none;
+            box-shadow: inset 0 0 0 1px #0071eb; }
+          .oneStep form .oneStep-user .oneStep-password input:focus + label .password-label {
+            top: 0;
+            transform: none;
+            padding-top: 6px;
+            font-size: .8rem;
+            font-weight: 600;
+            transition: all .1s; }
+        .oneStep form .oneStep-user .oneStep-password label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 60px;
+          width: 440px;
+          user-select: none;
+          cursor: text; }
+          .oneStep form .oneStep-user .oneStep-password label .password-label {
+            color: #8c8c8c;
+            padding-left: 10px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: all .1s; }
+          .oneStep form .oneStep-user .oneStep-password label .focusInput {
+            top: 0 !important;
+            transform: none !important;
+            padding-top: 6px;
+            font-size: .8rem;
+            font-weight: 600;
+            transition: all .1s; }
+      .oneStep form .oneStep-user .p-password {
+        color: #0071eb;
+        margin-top: 22px;
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: .01rem;
+        cursor: pointer; }
+        .oneStep form .oneStep-user .p-password:hover {
+          text-decoration: underline; }
+      .oneStep form .oneStep-user .oneStep-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 25px;
+        width: 100%;
+        height: 65px;
+        border: none;
+        border-radius: 3px;
+        background-color: #e50914;
+        cursor: pointer; }
+        .oneStep form .oneStep-user .oneStep-btn:hover {
+          background-color: #f6121d; }
+        .oneStep form .oneStep-user .oneStep-btn span {
+          font-weight: 500;
+          color: white;
+          font-size: 1.5rem; }
+
+* {
+  padding: 0;
+  margin: 0; }
+
+.index-body {
+  font-family: 'Roboto', sans-serif;
+  background-color: black; }
+
+.section-one {
+  position: relative;
+  border-bottom: 8px solid #222; }
+  .section-one nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 27px 56px 0 56px; }
+    .section-one nav .nav-logo {
+      z-index: 1; }
+      .section-one nav .nav-logo img {
+        height: 46px; }
+    .section-one nav .nav-items {
+      display: flex;
+      z-index: 1; }
+      .section-one nav .nav-items .lang {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-right: 25px; }
+        .section-one nav .nav-items .lang .globe {
+          position: absolute;
+          height: 15px;
+          left: 0;
+          fill: white;
+          padding-left: 7px; }
+        .section-one nav .nav-items .lang select {
+          padding: 9px 25px;
+          background-color: rgba(0, 0, 0, 0.4);
+          color: white;
+          font-size: 0.9rem;
+          border: 1px solid #aaa;
+          border-radius: 3px;
+          appearance: none; }
+        .section-one nav .nav-items .lang .arrow {
+          position: absolute;
+          height: 15px;
+          right: 0;
+          fill: white;
+          padding-right: 7px; }
+      .section-one nav .nav-items a {
+        margin: auto;
+        padding: 10px 16px;
+        background-color: #e50914;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        font-size: 1em;
+        line-height: 1em;
+        cursor: pointer; }
+  .section-one .container {
+    padding: 150px 0; }
+    .section-one .container .background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0, transparent 60%, rgba(0, 0, 0, 0.8));
+      user-select: none; }
+      .section-one .container .background img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+        z-index: -1; }
+    .section-one .container .login {
+      display: flex;
+      justify-content: center;
+      flex-direction: column; }
+      .section-one .container .login .texto {
+        display: block;
+        margin: 20px auto 0;
+        z-index: 1; }
+        .section-one .container .login .texto h1 {
+          color: white;
+          font-size: 4rem;
+          line-height: 4.5rem;
+          font-weight: 600;
+          letter-spacing: .05rem;
+          text-align: center;
+          max-width: 800px; }
+        .section-one .container .login .texto h2 {
+          margin-top: 15px;
+          color: white;
+          font-size: 1.7rem;
+          font-weight: 400;
+          text-align: center; }
+      .section-one .container .login .email {
+        display: block;
+        margin: auto;
+        z-index: 1; }
+        .section-one .container .login .email p {
+          margin-top: 30px;
+          color: white;
+          font-size: 1.25rem;
+          font-weight: 400;
+          text-align: center; }
+        .section-one .container .login .email form {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          height: 70px; }
+          .section-one .container .login .email form .box-form {
+            position: relative;
+            height: 70px;
+            width: 500px; }
+            .section-one .container .login .email form .box-form input {
+              height: 60px;
+              width: 490px;
+              padding: 10px 0 0 10px;
+              box-shadow: inset 0 0 0 1px #aaa;
+              border: none;
+              font-size: 1rem;
+              border-bottom-left-radius: 3px;
+              border-top-left-radius: 3px;
+              cursor: text; }
+              .section-one .container .login .email form .box-form input:focus-visible {
+                outline: none;
+                box-shadow: inset 0 0 0 1px #0071eb; }
+              .section-one .container .login .email form .box-form input:focus + label .placelabel {
+                top: 0;
+                transform: none;
+                padding-top: 6px;
+                font-size: .8rem;
+                font-weight: 600;
+                transition: all .1s; }
+            .section-one .container .login .email form .box-form label {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 70px;
+              width: 500px;
+              cursor: text; }
+              .section-one .container .login .email form .box-form label .placelabel {
+                color: #8c8c8c;
+                padding-left: 10px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                transition: all .1s; }
+              .section-one .container .login .email form .box-form label .focusInput {
+                top: 0 !important;
+                transform: none !important;
+                padding-top: 6px;
+                font-size: .8rem;
+                font-weight: 600;
+                transition: all .1s; }
+          .section-one .container .login .email form button {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            border: none;
+            box-shadow: inset 0 0 0 1px #0000;
+            background-color: #e50914;
+            padding: 0 25px 0 30px;
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px;
+            cursor: pointer; }
+            .section-one .container .login .email form button:hover {
+              background-color: #f40612; }
+            .section-one .container .login .email form button span {
+              color: white;
+              font-size: 1.9rem;
+              font-weight: 500; }
+            .section-one .container .login .email form button svg {
+              fill: white;
+              margin-left: 8px; }

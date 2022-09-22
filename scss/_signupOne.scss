@@ -1,0 +1,166 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+.nav-signupOne{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+    .nav-logo{
+        display: flex;
+        align-items: center;
+        height: 90px;
+        margin-left: 3%;
+        a{
+            img{
+                padding: 25px 0 20px 0;
+                height: 45px;
+            }
+        }
+        
+    }
+    .signup{
+        height: 90px;
+        display: flex;
+        align-items: center;
+        margin-right: 3%;
+        a{
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #333;
+            &:hover{
+                text-decoration: underline;
+            }
+            p{
+                font-size: 1.15rem;
+                font-weight: 600;
+                line-height: 90px;
+            }
+        }
+    }
+}
+.oneStep{
+    padding: 42px 0;
+    display: flex;
+    justify-content: center;
+    form{
+        width: 440px;
+        .oneStep-text{
+            color: #333;
+            p{
+                font-size: .8rem;
+                letter-spacing: .05rem
+                ;
+            }
+            h1{
+                margin-top: 4px;
+                font-size: 2rem;
+                font-weight: 600;
+                letter-spacing: .02rem;
+                line-height: 2.5rem;
+            }
+            h2{
+                margin-top: 12px;
+                font-size: 1.1rem;
+                font-weight: 400;
+                letter-spacing: .015rem;
+            }
+        }
+        .oneStep-user{
+            margin-top: 30px;
+            .oneStep-email{
+                .p-email{
+                    
+                }
+                .user-email{
+                    font-weight: 500;
+                    letter-spacing: .02rem;
+                }
+            }
+            .oneStep-password{
+                margin-top: 18px;
+                position: relative;
+
+                input{
+                    height: 50px;
+                    width: 430px;
+                    padding: 10px 0 0 10px;
+                    border: none;
+                    box-shadow: inset 0 0 0 1px #8c8c8c;
+                    font-size: 1rem;
+                    border-radius: 3px;
+                    cursor: text;
+                    &:focus-visible{
+                        outline: none;
+                        box-shadow: inset 0 0 0 1px #0071eb;
+                    }
+                    &:focus + label .password-label{
+                        top: 0;
+                        transform: none;
+                        padding-top: 6px;
+                        font-size: .8rem;
+                        font-weight: 600;
+                        transition: all .1s;
+                    }
+                }
+                label{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 60px;
+                    width: 440px;
+                    user-select: none;
+                    cursor: text;
+                    .password-label{
+                        color: #8c8c8c;
+                        padding-left: 10px;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                        transition: all .1s;
+                    }
+                    .focusInput{
+                        top: 0 !important;
+                        transform: none !important;
+                        padding-top: 6px;
+                        font-size: .8rem;
+                        font-weight: 600;
+                        transition: all .1s;
+                    }
+                }
+            }
+            .p-password{
+                color: #0071eb;
+                margin-top: 22px;
+                font-size: 1rem;
+                font-weight: 400;
+                letter-spacing: .01rem;
+                cursor: pointer;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            .oneStep-btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 25px;
+                width: 100%;
+                height: 65px;
+                border: none;
+                border-radius: 3px;
+                background-color: #e50914;
+                cursor: pointer;
+                &:hover{
+                    background-color: #f6121d;
+                }
+                span{
+                    font-weight: 500;
+                    color: rgb(255, 255, 255);
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}

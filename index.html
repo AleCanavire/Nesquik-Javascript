@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesquick Argentina: Ve series online, ve películas online</title>
+    
+    <link rel="shortcut icon" href="img/favicon.png" type="favicon">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="index-body">
+    <div class="section-one">
+        <nav>
+            <div class="nav-logo">
+                <img src="img/nesquick.svg" alt="Nesquick Logo">
+            </div>
+            <div class="nav-items">
+                <div class="lang">
+                    <img class="globe" src="img/globe.svg" alt="">
+                    <select name="language" id="selectLang">
+                        <option lang="es" value="Español" selected>Español</option>
+                        <option lang="en" value="English">English</option>
+                    </select>
+                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </div>
+                <a id="signup" class="btn" type="submit">
+                    Iniciar sesión
+                </a>
+            </div>
+        </nav>
+        <div class="container">
+            <div id="background" class="background">
+                <img src="img/background-es.jpg" alt="background movies">
+            </div>
+            <div class="login">
+                <div id="title" class="texto">
+                    <h1>Películas y series ilimitadas y mucho más.</h1>
+                    <h2>Disfruta donde quieras. Cancela cuando quieras.</h2>
+                </div>
+                <div class="email">
+                    <p id="newAccount">¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar tu membresía de Netflix.</p>
+                    <form action="views/signupOne.html">
+                        <label class="box-form">
+                            <input id="email" type="email" name="email" value="" required>
+                            <label for="email">
+                                <span class="placelabel">Email</span>
+                            </label>
+                        </label>
+                        <button type="submit">
+                            <span id="start">Comenzar</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
