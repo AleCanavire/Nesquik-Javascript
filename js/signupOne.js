@@ -25,12 +25,6 @@ btnNewUser.addEventListener("click", () =>{
     newUser()
 })
 
-const form = document.querySelector('form');
-
-form.addEventListener('submit', (e) =>{
-    e.preventDefault();
-})
-
 // Crear nuevo usuario funcion
 function newUser() {
     const user = {

@@ -5,8 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nesquik</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
 </head>
-<body>
-    
+<body class="body-login">
+    <div class="login-container">
+        <nav>
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <img src="../img/nesquick.svg" alt="Nesquick Logo">
+                </a>
+            </div>
+        </nav>
+        <div class="container">
+            <div id="background" class="background">
+                <img src="../img/background-es.jpg" alt="background movies">
+            </div>
+            <div class="boxLogin">
+                <form action="#">
+                    <h1>Inicia sesión</h1>
+
+                    <div id="incorrect"></div>
+
+                    <div class="email-container">
+                        <div class="emailLogin">
+                            <input id="emailLogin" type="email" name="emailLogin">
+                            <label for="emailLogin">
+                                <span class="emailSpan">Email o número de teléfono</span>
+                            </label>
+                        </div>
+                        <div id="validEmail"></div>
+                    </div>
+
+                    <div class="pass-container">
+                        <div class="passLogin">
+                            <input id="passLogin" type="password" name="passLogin" minlength="4" maxlength="60">
+                            <label for="passLogin">
+                                <span class="passSpan">Contraseña</span>
+                            </label>
+                        </div>
+                        <div id="validPass"></div>
+                    </div>
+
+                    <button id="btnLogin" type="submit">Iniciar sesión</button>
+                    <div class="signup">
+                        <div class="record">
+                            <input type="checkbox" name="record" id="record">
+                            <label for="record">Recuérdame</label>
+                        </div>
+                        <a href="">¿Necesitas ayuda?</a>
+                    </div>
+                    <p class="first">¿Primera vez en Netflix?<a href="signupOne.html">Suscribete ahora</a></p>
+                    <p class="captcha">Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot. <span>Más info.</span></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h2>footer</h2>
+    </footer>
+
+    <script src="../js/login.js"></script>
 </body>
 </html>

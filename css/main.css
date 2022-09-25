@@ -13,7 +13,6 @@ body {
     height: 90px;
     margin-left: 3%; }
     .nav-signupOne .nav-logo a img {
-      padding: 25px 0 20px 0;
       height: 45px; }
   .nav-signupOne .signup {
     height: 90px;
@@ -60,10 +59,12 @@ body {
         letter-spacing: .02rem; }
       .oneStep form .oneStep-user .oneStep-password {
         margin-top: 18px;
-        position: relative; }
+        position: relative;
+        width: 440px;
+        height: 60px; }
         .oneStep form .oneStep-user .oneStep-password input {
-          height: 50px;
-          width: 430px;
+          width: 100%;
+          height: 100%;
           padding: 10px 0 0 10px;
           border: none;
           box-shadow: inset 0 0 0 1px #8c8c8c;
@@ -84,8 +85,8 @@ body {
           position: absolute;
           top: 0;
           left: 0;
-          height: 60px;
-          width: 440px;
+          height: 100%;
+          width: 100%;
           user-select: none;
           cursor: text; }
           .oneStep form .oneStep-user .oneStep-password label .password-label {
@@ -130,9 +131,236 @@ body {
           color: white;
           font-size: 1.5rem; }
 
+.body-login {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black; }
+
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  border-bottom: 8px solid #222; }
+  .login-container nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 3%;
+    padding: 21px 0; }
+    .login-container nav .nav-logo {
+      z-index: 1; }
+      .login-container nav .nav-logo img {
+        height: 46px; }
+  .login-container .container {
+    display: flex;
+    justify-content: center; }
+    .login-container .container .background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0, transparent 60%, rgba(0, 0, 0, 0.5));
+      user-select: none; }
+      .login-container .container .background img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+        z-index: -1; }
+    .login-container .container .boxLogin {
+      display: flex;
+      justify-content: center;
+      max-width: 450px;
+      height: 660px;
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 3px; }
+      .login-container .container .boxLogin form {
+        z-index: 1;
+        padding: 60px 70px; }
+        .login-container .container .boxLogin form h1 {
+          color: white;
+          margin-bottom: 28px; }
+        .login-container .container .boxLogin form .incorrect {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px 20px;
+          width: 100%;
+          border: none;
+          border-radius: 4px;
+          background-color: #e87c03;
+          margin-bottom: 15px; }
+          .login-container .container .boxLogin form .incorrect p {
+            font-size: 14px;
+            color: white; }
+        .login-container .container .boxLogin form .emailLogin {
+          position: relative;
+          height: 50px;
+          width: 100%;
+          overflow: hidden; }
+          .login-container .container .boxLogin form .emailLogin input {
+            padding: 16px 20px 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            background-color: #333;
+            color: white;
+            cursor: text; }
+            .login-container .container .boxLogin form .emailLogin input:focus-visible {
+              outline: none;
+              background-color: #454545; }
+            .login-container .container .boxLogin form .emailLogin input:focus + label span {
+              top: 0;
+              transform: none;
+              padding-top: 7px;
+              font-size: .7rem;
+              font-weight: 500;
+              transition: all .1s; }
+          .login-container .container .boxLogin form .emailLogin label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            cursor: text; }
+            .login-container .container .boxLogin form .emailLogin label .emailSpan {
+              font-family: Arial, Helvetica, sans-serif;
+              color: #8c8c8c;
+              padding-left: 20px;
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              transition: all .1s; }
+            .login-container .container .boxLogin form .emailLogin label .inputLogin {
+              top: 0 !important;
+              transform: none !important;
+              padding-top: 7px;
+              font-size: .7rem;
+              font-weight: 500;
+              transition: all .1s; }
+        .login-container .container .boxLogin form #validEmail {
+          margin-bottom: 15px; }
+          .login-container .container .boxLogin form #validEmail #email-p {
+            color: #e87c03;
+            font-size: .8rem;
+            padding: 6px 3px; }
+        .login-container .container .boxLogin form .passLogin {
+          position: relative;
+          height: 50px;
+          width: 100%;
+          overflow: hidden; }
+          .login-container .container .boxLogin form .passLogin input {
+            padding: 16px 20px 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            background-color: #333;
+            color: white;
+            cursor: text; }
+            .login-container .container .boxLogin form .passLogin input:focus-visible {
+              outline: none;
+              background-color: #454545; }
+            .login-container .container .boxLogin form .passLogin input:focus + label span {
+              top: 0;
+              transform: none;
+              padding-top: 7px;
+              font-size: .7rem;
+              font-weight: 500;
+              transition: all .1s; }
+          .login-container .container .boxLogin form .passLogin label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            cursor: text; }
+            .login-container .container .boxLogin form .passLogin label .passSpan {
+              font-family: Arial, Helvetica, sans-serif;
+              color: #8c8c8c;
+              padding-left: 20px;
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              transition: all .1s; }
+            .login-container .container .boxLogin form .passLogin label .inputLogin {
+              top: 0 !important;
+              transform: none !important;
+              padding-top: 7px;
+              font-size: .7rem;
+              font-weight: 500;
+              transition: all .1s; }
+        .login-container .container .boxLogin form #validPass {
+          margin-bottom: 40px; }
+          .login-container .container .boxLogin form #validPass #pass-p {
+            color: #e87c03;
+            font-size: .8rem;
+            padding: 6px 3px; }
+        .login-container .container .boxLogin form button {
+          margin-bottom: 15px;
+          padding: 15px 0;
+          width: 100%;
+          border: none;
+          border-radius: 4px;
+          background-color: #e50914;
+          color: white;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer; }
+        .login-container .container .boxLogin form .signup {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 80px; }
+          .login-container .container .boxLogin form .signup .record {
+            display: flex;
+            align-items: center; }
+            .login-container .container .boxLogin form .signup .record input {
+              margin-right: 5px;
+              height: 15px;
+              width: 15px; }
+            .login-container .container .boxLogin form .signup .record label {
+              color: #B3B3B3;
+              font-size: .8rem; }
+          .login-container .container .boxLogin form .signup a {
+            color: #B3B3B3;
+            font-size: .8rem;
+            text-decoration: none; }
+            .login-container .container .boxLogin form .signup a:hover {
+              text-decoration: underline; }
+        .login-container .container .boxLogin form .first {
+          color: #737373;
+          margin-bottom: 15px; }
+          .login-container .container .boxLogin form .first a {
+            margin-left: 5px;
+            color: white;
+            text-decoration: none; }
+            .login-container .container .boxLogin form .first a:hover {
+              text-decoration: underline; }
+        .login-container .container .boxLogin form .captcha {
+          color: #8C8C8C;
+          font-size: .8rem; }
+          .login-container .container .boxLogin form .captcha span {
+            color: #0071eb; }
+            .login-container .container .boxLogin form .captcha span:hover {
+              text-decoration: underline;
+              cursor: pointer; }
+
 * {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  box-sizing: border-box; }
 
 .index-body {
   font-family: 'Roboto', sans-serif;
@@ -187,7 +415,10 @@ body {
         border-radius: 3px;
         font-size: 1em;
         line-height: 1em;
+        text-decoration: none;
         cursor: pointer; }
+        .section-one nav .nav-items a:hover {
+          text-decoration: underline; }
   .section-one .container {
     padding: 150px 0; }
     .section-one .container .background {
@@ -250,11 +481,11 @@ body {
           height: 70px; }
           .section-one .container .login .email form .box-form {
             position: relative;
-            height: 70px;
+            height: 100%;
             width: 500px; }
             .section-one .container .login .email form .box-form input {
-              height: 60px;
-              width: 490px;
+              height: 100%;
+              width: 100%;
               padding: 10px 0 0 10px;
               box-shadow: inset 0 0 0 1px #aaa;
               border: none;
@@ -276,8 +507,8 @@ body {
               position: absolute;
               top: 0;
               left: 0;
-              height: 70px;
-              width: 500px;
+              height: 100%;
+              width: 100%;
               cursor: text; }
               .section-one .container .login .email form .box-form label .placelabel {
                 color: #8c8c8c;

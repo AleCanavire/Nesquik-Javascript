@@ -13,7 +13,6 @@ body{
         margin-left: 3%;
         a{
             img{
-                padding: 25px 0 20px 0;
                 height: 45px;
             }
         }
@@ -80,10 +79,11 @@ body{
             .oneStep-password{
                 margin-top: 18px;
                 position: relative;
-
+                width: 440px;
+                height: 60px;
                 input{
-                    height: 50px;
-                    width: 430px;
+                    width: 100%;
+                    height: 100%;
                     padding: 10px 0 0 10px;
                     border: none;
                     box-shadow: inset 0 0 0 1px #8c8c8c;
@@ -107,8 +107,8 @@ body{
                     position: absolute;
                     top: 0;
                     left: 0;
-                    height: 60px;
-                    width: 440px;
+                    height: 100%;
+                    width: 100%;
                     user-select: none;
                     cursor: text;
                     .password-label{

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesquik</title>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+        .pelicula{
+            width: 250px;
+            margin: 20px 30px;
+        }
+        img{
+            width: 100%;
+            height: 375px;
+            box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, .6);
+            cursor: pointer;
+        }
+        .info{
+            width: 100%;
+        }
+        h3, p{
+            margin-top: .5em;
+            margin-bottom: .5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>NESQUIK</h1>
+    <input id="btn" type="button" value="Buscar">
+    <input id="search" type="text" name="buscar" list="peliculas">
+    <datalist id="peliculas">
+        <option value="GoodFellas">
+        <option value="Inglourious Basterds">
+        <option value="Kill Bill: Vol. 1">
+        <option value="Kill Bill: Vol. 2">
+        <option value="Once Upon a Time in Hollywood">
+        <option value="Pulp Fiction">
+        <option value="Taxi Driver">
+        <option value="The Irishman">
+        <option value="The Wolf Of Wall Street">
+        <option value="Acción">
+        <option value="Comedia">
+        <option value="Crimen">
+        <option value="Drama">
+        <option value="Martin Scorsese">
+        <option value="Quentin Tarantino">
+    </datalist>
+    <div id="container" class="container">
+        
+    </div>
+
+    <script src="../js/home.js"></script>
+</body>
+</html>
