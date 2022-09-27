@@ -3,11 +3,7 @@ const indexInput = document.querySelector('#email');
 const emailSpan = document.querySelector('.placelabel');
 
 indexInput.addEventListener('keyup', () => {
-    if (indexInput.value != "") {
-        emailSpan.classList.add('focusInput');
-    } else{
-        emailSpan.classList.remove('focusInput');
-    }
+    indexInput.value != "" ? emailSpan.classList.add('focusInput') : emailSpan.classList.remove('focusInput');
 });
 
 // Tomar el email para rellenarlo automaticamente al signup

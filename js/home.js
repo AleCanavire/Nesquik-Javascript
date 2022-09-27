@@ -100,4 +100,4 @@ const filtrar = () => {
 
 search.addEventListener("keyup", ()=> {
     filtrar();
-})
+});
