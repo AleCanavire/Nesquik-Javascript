@@ -78,16 +78,11 @@ const filtrar = () => {
         let genero = pelicula.genero.toLowerCase();
 
         if(nombre.includes(texto) || director.includes(texto) || genero.includes(texto)){
+            container.classList.add("search-div");
             const div = document.createElement("div");
             div.classList.add("pelicula");
             div.innerHTML = `
-            <img src="${pelicula.img}" alt="${pelicula.nombre}">
-            <div class="info">
-            <h3>${pelicula.nombre}</h3>
-            <p>${pelicula.director}</p>
-            <p>${pelicula.genero}</p>
-            <p>${pelicula.año}</p>
-            </div>
+            <img class="pelicula-img" src="${pelicula.img}" alt="${pelicula.nombre}">
             `
             container.append(div);
         }
@@ -95,6 +90,10 @@ const filtrar = () => {
     if (container.innerHTML === "") {
         container.innerHTML = `
         <p>No se encontraron resultados</p>`
+    }
+    if(search.value === ""){
+        container.classList.remove("search-div");
+        container.innerHTML = ""
     }
 }
 

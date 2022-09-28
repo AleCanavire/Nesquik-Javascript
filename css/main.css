@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
-body {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.signupOne-bg {
   font-family: 'Roboto', sans-serif;
   background-color: white; }
 
@@ -357,10 +362,131 @@ body {
               text-decoration: underline;
               cursor: pointer; }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box; }
+.home-body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #141414;
+  min-height: 100vh; }
+
+.nav-home {
+  background-color: #141414;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
+  padding: 0 60px;
+  width: 100%;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .nav-home .logo-links {
+    display: flex;
+    align-items: center; }
+    .nav-home .logo-links .nav-logo {
+      margin-right: 24px;
+      height: 25px; }
+      .nav-home .logo-links .nav-logo a {
+        font-size: 25px; }
+        .nav-home .logo-links .nav-logo a svg {
+          height: 25px; }
+    .nav-home .logo-links .nav-links ul {
+      display: flex;
+      list-style: none; }
+      .nav-home .logo-links .nav-links ul li {
+        margin-left: 20px; }
+        .nav-home .logo-links .nav-links ul li:first-child a {
+          font-weight: 600; }
+        .nav-home .logo-links .nav-links ul li a {
+          color: #fff;
+          font-size: 14px;
+          font-weight: 400;
+          text-decoration: none; }
+          .nav-home .logo-links .nav-links ul li a:hover {
+            font-weight: 600; }
+  .nav-home .search-container .searchInput {
+    width: 275px;
+    height: 35px;
+    display: flex;
+    border: 1px solid #e5e5e5; }
+    .nav-home .search-container .searchInput button {
+      border: none;
+      background-color: black;
+      height: 100%;
+      padding: 5px 10px 5px 5px; }
+    .nav-home .search-container .searchInput input {
+      background-color: black;
+      color: #e5e5e5;
+      font-size: .9rem;
+      border: none;
+      height: 100%;
+      width: 100%; }
+      .nav-home .search-container .searchInput input::placeholder {
+        color: #8c8c8c;
+        font-size: .9rem; }
+      .nav-home .search-container .searchInput input:focus-visible {
+        outline: none; }
+
+.search-div {
+  padding: 60px 60px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #141414;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: normal;
+  justify-content: center; }
+  .search-div .pelicula {
+    width: 210px;
+    margin: 5px;
+    border-radius: 5px; }
+    .search-div .pelicula .pelicula-img {
+      width: 100%;
+      border-radius: 5px; }
+  .search-div p {
+    color: #e5e5e5;
+    font-size: 1rem; }
+
+.slick-list {
+  overflow: inherit; }
+
+.popular {
+  height: 100vh;
+  position: relative;
+  overflow: hidden; }
+  .popular h1 {
+    margin: 20px 0 12px 60px;
+    color: #e5e5e5;
+    font-size: 1.4vw; }
+  .popular .popular-movies .slider .card {
+    border-radius: 5px; }
+    .popular .popular-movies .slider .card img {
+      border-radius: 5px;
+      width: 100%;
+      height: auto;
+      transform: scale(1);
+      transition: all .3s ease-in-out; }
+      .popular .popular-movies .slider .card img:hover {
+        transform: scale(1.03);
+        transition: all .3s ease-in-out;
+        cursor: pointer; }
+  .popular .popular-movies .responsive div {
+    margin-right: 5px; }
+  .popular .popular-movies .shadow:before,
+  .popular .popular-movies .shadow:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 60px;
+    top: 0;
+    height: 100%;
+    pointer-events: none; }
+  .popular .popular-movies .shadow:before {
+    left: 0;
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0)); }
+  .popular .popular-movies .shadow:after {
+    right: 0;
+    background: linear-gradient(to left, rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0)); }
 
 .index-body {
   font-family: 'Roboto', sans-serif;
