@@ -66,7 +66,7 @@ const peliculas = [
 
 const btn = document.getElementById("btn");
 const search = document.querySelector("#search");
-const container = document.getElementById("container");
+const container = document.getElementById("containerSearch");
 
 const filtrar = () => {
     container.innerHTML = ""
@@ -97,6 +97,27 @@ const filtrar = () => {
     }
 }
 
-search.addEventListener("keyup", ()=> {
+search.addEventListener("keyup", () => {
     filtrar();
 });
+
+// Transicion de Lupa
+const searchInput = document.getElementById('searchInput');
+
+btn.addEventListener("click", (e) => {
+    console.log(e)
+    if (!searchInput.classList.contains('searchInput')) {
+        searchInput.classList.add('searchInput');
+        search.style.width = '100%'
+    } else {
+        searchInput.classList.remove('searchInput');
+        search.style.width = '0'
+    }
+});
+
+window.addEventListener('click', function(e){
+    if (!searchInput.contains(e.target)){
+        searchInput.classList.remove('searchInput');
+        search.style.width = '0'
+    }
+})

@@ -370,7 +370,7 @@
 .nav-home {
   background-color: #141414;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
-  padding: 0 60px;
+  padding: 0 4%;
   width: 100%;
   height: 68px;
   display: flex;
@@ -380,51 +380,56 @@
     display: flex;
     align-items: center; }
     .nav-home .logo-links .nav-logo {
-      margin-right: 24px;
       height: 25px; }
       .nav-home .logo-links .nav-logo a {
         font-size: 25px; }
         .nav-home .logo-links .nav-logo a svg {
           height: 25px; }
-    .nav-home .logo-links .nav-links ul {
-      display: flex;
-      list-style: none; }
-      .nav-home .logo-links .nav-links ul li {
-        margin-left: 20px; }
+    .nav-home .logo-links .nav-links {
+      margin-left: 44px; }
+      .nav-home .logo-links .nav-links ul {
+        display: flex;
+        list-style: none;
+        gap: 18px; }
         .nav-home .logo-links .nav-links ul li:first-child a {
-          font-weight: 600; }
+          font-weight: 600;
+          color: #fff; }
         .nav-home .logo-links .nav-links ul li a {
-          color: #fff;
+          color: #e5e5e5;
           font-size: 14px;
           font-weight: 400;
-          text-decoration: none; }
+          text-decoration: none;
+          transition: color .4s; }
           .nav-home .logo-links .nav-links ul li a:hover {
-            font-weight: 600; }
+            color: #b3b3b3;
+            transition: color .4s; }
   .nav-home .search-container .searchInput {
     width: 275px;
     height: 35px;
     display: flex;
-    border: 1px solid #e5e5e5; }
-    .nav-home .search-container .searchInput button {
-      border: none;
-      background-color: black;
-      height: 100%;
-      padding: 5px 10px 5px 5px; }
-    .nav-home .search-container .searchInput input {
-      background-color: black;
-      color: #e5e5e5;
-      font-size: .9rem;
-      border: none;
-      height: 100%;
-      width: 100%; }
-      .nav-home .search-container .searchInput input::placeholder {
-        color: #8c8c8c;
-        font-size: .9rem; }
-      .nav-home .search-container .searchInput input:focus-visible {
-        outline: none; }
+    border: 1px solid #e5e5e5;
+    background-color: black; }
+  .nav-home .search-container #searchInput button {
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    padding: 5px 10px 5px 5px;
+    cursor: pointer; }
+  .nav-home .search-container #searchInput input {
+    background-color: transparent;
+    color: #e5e5e5;
+    font-size: .9rem;
+    border: none;
+    height: 100%;
+    width: 0; }
+    .nav-home .search-container #searchInput input:focus-visible {
+      outline: none; }
+    .nav-home .search-container #searchInput input::placeholder {
+      color: #8c8c8c;
+      font-size: .9rem; }
 
 .search-div {
-  padding: 60px 60px 0;
+  padding: 60px 4% 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -448,45 +453,214 @@
     font-size: 1rem; }
 
 .slick-list {
-  overflow: inherit; }
+  overflow: inherit;
+  padding: 0 4% !important; }
 
-.popular {
-  height: 100vh;
+.container {
+  min-height: 100vh;
   position: relative;
   overflow: hidden; }
-  .popular h1 {
-    margin: 20px 0 12px 60px;
-    color: #e5e5e5;
-    font-size: 1.4vw; }
-  .popular .popular-movies .slider .card {
-    border-radius: 5px; }
-    .popular .popular-movies .slider .card img {
+  .container .movies {
+    position: relative;
+    margin: 3vw 0; }
+    .container .movies:hover > .arrow_prev svg, .container .movies:hover > .arrow_next svg {
+      width: 35%; }
+    .container .movies:hover > .slider .slick-dots {
+      opacity: 1; }
+    .container .movies h1 {
+      margin: 0 4% 0.5em;
+      color: #e5e5e5;
+      font-size: 1.4vw; }
+    .container .movies .slider .slick-dots {
+      width: initial;
+      position: absolute;
+      top: -20px;
+      right: 0;
+      bottom: initial;
+      margin-right: 4%;
+      display: flex;
+      opacity: 0; }
+      .container .movies .slider .slick-dots .slick-active button {
+        background-color: #aaa !important; }
+      .container .movies .slider .slick-dots li {
+        width: 12px !important;
+        height: 2px !important;
+        margin: 0 2px !important; }
+        .container .movies .slider .slick-dots li button {
+          width: 12px !important;
+          height: 2px !important;
+          padding: 0;
+          background-color: rgba(255, 255, 255, 0.2); }
+          .container .movies .slider .slick-dots li button::before {
+            display: none; }
+    .container .movies .slider .card {
       border-radius: 5px;
-      width: 100%;
-      height: auto;
-      transform: scale(1);
-      transition: all .3s ease-in-out; }
-      .popular .popular-movies .slider .card img:hover {
-        transform: scale(1.03);
-        transition: all .3s ease-in-out;
-        cursor: pointer; }
-  .popular .popular-movies .responsive div {
-    margin-right: 5px; }
-  .popular .popular-movies .shadow:before,
-  .popular .popular-movies .shadow:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    width: 60px;
-    top: 0;
-    height: 100%;
-    pointer-events: none; }
-  .popular .popular-movies .shadow:before {
-    left: 0;
-    background: linear-gradient(to right, rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0)); }
-  .popular .popular-movies .shadow:after {
-    right: 0;
-    background: linear-gradient(to left, rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0)); }
+      cursor: pointer; }
+      .container .movies .slider .card .cardImg {
+        border-radius: 5px;
+        width: 100%;
+        height: auto; }
+    .container .movies .slick-slide {
+      padding: 0 .2vw; }
+    .container .movies .shadow:before,
+    .container .movies .shadow:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 4%;
+      top: 0;
+      height: 100%;
+      pointer-events: none; }
+    .container .movies .shadow:before {
+      left: 0;
+      background: rgba(20, 20, 20, 0.5);
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px; }
+    .container .movies .shadow:after {
+      right: 0;
+      background: rgba(20, 20, 20, 0.5);
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px; }
+    .container .movies .arrow_prev {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      width: 4%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      fill: #fff;
+      z-index: 2;
+      cursor: pointer; }
+      .container .movies .arrow_prev svg {
+        width: 0;
+        transition: all .1s ease; }
+        .container .movies .arrow_prev svg:hover {
+          transform: scale(1.2);
+          transition: all .1s ease; }
+    .container .movies .arrow_next {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      width: 4%;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      fill: #fff;
+      z-index: 2;
+      cursor: pointer; }
+      .container .movies .arrow_next svg {
+        width: 0;
+        transition: all .1s ease; }
+        .container .movies .arrow_next svg:hover {
+          transform: scale(1.2);
+          transition: all .1s ease; }
+
+.bgInfo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%; }
+  .bgInfo .movieInfo {
+    position: fixed;
+    background-color: #141414;
+    top: 50%;
+    width: 900px;
+    min-width: 850px;
+    height: 95%;
+    left: 50%;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    overflow: hidden; }
+    .bgInfo .movieInfo .imgInfo {
+      position: relative;
+      width: 100%; }
+      .bgInfo .movieInfo .imgInfo .backdrop {
+        width: 100%; }
+      .bgInfo .movieInfo .imgInfo .logoBtns {
+        position: absolute;
+        margin: 0 0 45px 45px;
+        bottom: 0;
+        left: 0;
+        width: 40%;
+        z-index: 3;
+        display: flex;
+        flex-wrap: wrap; }
+        .bgInfo .movieInfo .imgInfo .logoBtns .divLogo {
+          width: 100%;
+          max-height: 150px;
+          margin-bottom: 1.5em; }
+          .bgInfo .movieInfo .imgInfo .logoBtns .divLogo .logo {
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain; }
+        .bgInfo .movieInfo .imgInfo .logoBtns .reproducir {
+          background-color: #fff;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          padding: 9px 19px;
+          border: none;
+          border-radius: 5px;
+          margin: 0.25em; }
+          .bgInfo .movieInfo .imgInfo .logoBtns .reproducir:hover {
+            background-color: #e6e6e6 !important;
+            cursor: pointer; }
+          .bgInfo .movieInfo .imgInfo .logoBtns .reproducir svg {
+            margin-right: 10px; }
+          .bgInfo .movieInfo .imgInfo .logoBtns .reproducir span {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 16px; }
+        .bgInfo .movieInfo .imgInfo .logoBtns .miLista {
+          border-radius: 50%;
+          margin: 0.25em;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(42, 42, 42, 0.6);
+          border: 2px solid rgba(255, 255, 255, 0.5); }
+          .bgInfo .movieInfo .imgInfo .logoBtns .miLista:hover {
+            border: 2px solid white;
+            cursor: pointer; }
+          .bgInfo .movieInfo .imgInfo .logoBtns .miLista svg {
+            width: 20px;
+            height: 20px; }
+        .bgInfo .movieInfo .imgInfo .logoBtns .rate {
+          border-radius: 50%;
+          margin: 0.25em;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(42, 42, 42, 0.6);
+          border: 2px solid rgba(255, 255, 255, 0.5); }
+          .bgInfo .movieInfo .imgInfo .logoBtns .rate:hover {
+            border: 2px solid white;
+            cursor: pointer; }
+          .bgInfo .movieInfo .imgInfo .logoBtns .rate svg {
+            width: 20px;
+            height: 20px; }
+      .bgInfo .movieInfo .imgInfo .shadowBack {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: linear-gradient(0deg, #141414, transparent 40%); }
+    .bgInfo .movieInfo .info {
+      padding: 0 45px; }
+      .bgInfo .movieInfo .info .sipnosis {
+        width: 500px; }
+        .bgInfo .movieInfo .info .sipnosis p {
+          font-family: 'Roboto', sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          color: #fff; }
 
 .index-body {
   font-family: 'Roboto', sans-serif;
