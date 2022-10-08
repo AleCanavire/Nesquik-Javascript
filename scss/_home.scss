@@ -5,14 +5,17 @@
 }
 
 .nav-home{
-    background-color: rgb(20, 20, 20);
-    background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
     padding: 0 4%;
     width: 100%;
     height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    background-color: rgb(20, 20, 20);
+    background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
     .logo-links{
         display: flex;
         align-items: center;
@@ -89,30 +92,27 @@
 }
 
 .search-div{
-    padding: 60px 4% 0;
+    padding: 8% 4% 0;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: #141414;
-    z-index: 2;
+    z-index: 15;
     display: flex;
     flex-wrap: wrap;
-    align-content: normal;
-    justify-content: center;
+    align-content: flex-start;
     .pelicula{
-        width: 210px;
-        margin: 5px;
+        width: 20%;
+        padding: 0 .2vw;
+        margin-bottom: 4.5vw;
         border-radius: 5px;
         .pelicula-img{
             width: 100%;
             border-radius: 5px;
+            cursor: pointer;
         }
-    }
-    p{
-        color: #e5e5e5;
-        font-size: 1rem;
     }
 }
 
@@ -127,6 +127,7 @@
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    padding-top: 40%;
     .movies{
         position: relative;
         margin: 3vw 0;
@@ -255,22 +256,22 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 20;
     background: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
     .movieInfo{
         position: fixed;
-        background-color: #141414;
+        background-color: #181818;
         top: 50%;
+        left: 50%;
         width: 900px;
         min-width: 850px;
-        height: 95%;
-        left: 50%;
         z-index: 20;
-        transform: translate(-50%, -50%);
         border-radius: 6px;
         overflow: hidden;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, .75);
+        transform: translate(-50%, -50%);
         .imgInfo{
             position: relative;
             width: 100%;
@@ -282,7 +283,7 @@
                 margin: 0 0 45px 45px;
                 bottom: 0;
                 left: 0;
-                width: 40%;
+                width: 35%;
                 z-index: 3;
                 display: flex;
                 flex-wrap: wrap;
@@ -294,6 +295,7 @@
                         height: 100%;
                         max-width: 100%;
                         object-fit: contain;
+                        filter: drop-shadow(0px 0px 15px black);
                     }
                 }
                 
@@ -320,10 +322,11 @@
                     }
                 }
                 .miLista{
-                    border-radius: 50%;
-                    margin: 0.25em;
+                    position: relative;
                     width: 40px;
                     height: 40px;
+                    border-radius: 50%;
+                    margin: 0.25em;
                     background-color: rgba(42,42,42,.6);
                     border: 2px solid rgba(255, 255, 255, 0.5);
                     &:hover{
@@ -333,9 +336,14 @@
                     svg{
                         width: 20px;
                         height: 20px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
                     }
                 }
                 .rate{
+                    position: relative;
                     border-radius: 50%;
                     margin: 0.25em;
                     width: 40px;
@@ -349,6 +357,33 @@
                     svg{
                         width: 20px;
                         height: 20px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+            .exit{
+                width:36px;
+                height: 36px;
+                margin: 1em;
+                position: absolute;
+                top: 0;
+                right: 0;
+                border-radius: 50%;
+                background-color: #181818;
+                z-index: 4;
+                cursor: pointer;
+                svg{
+                    width: 18px;
+                    height: 18px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    &:focus{
+                        outline: none;
                     }
                 }
             }
@@ -358,19 +393,94 @@
                 width: 100%;
                 height: 100%;
                 z-index: 2;
-                background: linear-gradient(0deg,#141414,transparent 40%);
+                background: linear-gradient(0deg, #181818,transparent 40%);
             }
         }
         .info{
-            padding: 0 45px;
-            .sipnosis{
-                width: 500px;
-                p{
-                    font-family: 'Roboto', sans-serif;
-                    font-size: 14px;
-                    font-weight: 400;
-                    line-height: 24px;
+            padding: 0 3em;
+            display: grid;
+            column-gap: 2em;
+            grid-template-columns: minmax(0,2fr) minmax(0,1fr);
+            padding-bottom: 1.5em;
+            .metadataL{
+                .metadata{
+                    display: flex;
+                    align-items: center;
+                    padding: 0.25em 0;
+                    .forYou{
+                        color: #46d369;
+                        font-family: 'Roboto';
+                        font-weight: 600;
+                        font-size: 16px;
+                        margin-right: 0.5em;
+                    }
+                    .year{
+                        color: #fff;
+                        font-family: 'Roboto';
+                        font-weight: 500;
+                        margin-right: 0.5em;
+                    }
+                    .age{
+                        color: #fff;
+                        font-family: 'Roboto';
+                        font-weight: 400;
+                        font-size: 16px;
+                        border: 1px solid rgba(255, 255, 255, 0.4);
+                        padding: 0 0.4em;
+                        margin-right: 0.5em;
+                    }
+                    .duration{
+                        color: #fff;
+                        font-family: 'Roboto';
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-right: 0.5em;
+                    }
+                    .quality{
+                        color: #fff;
+                        border: 1px solid rgba(255, 255, 255, 0.4);
+                        border-radius: 3px;
+                        font-size: .7em;
+                        padding: 0 0.5em;
+                        margin-right: 0.5em;
+                    }
+                    svg{
+                        width: 2em;
+                        height: 2em;
+                    }
+                }
+                .sipnosis{
+                    margin-top: 1.5em;
+                    p{
+                        color: #fff;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 24px;
+                    }
+                }
+            }
+            .metadataR{
+                .genres{
                     color: #fff;
+                    font-size: 14px;
+                    line-height: 20px;
+                    padding: 0.5em .5em 0.5em 0;
+                    span{
+                        color: #777;
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
+                }
+                .created{
+                    color: #fff;
+                    font-size: 14px;
+                    line-height: 20px;
+                    padding: 0.5em .5em 0.5em 0;
+                    span{
+                        color: #777;
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
                 }
             }
         }

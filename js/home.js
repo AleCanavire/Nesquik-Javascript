@@ -1,91 +1,30 @@
-const peliculas = [
-    {
-        nombre: "Goodfellas" ,
-        año: 1990 ,
-        genero: "Crimen" ,
-        director: "Martin Scorsese" ,
-        img: "../img/goodfellas.jpg"
-    },
-    {
-        nombre: "Taxi Driver" ,
-        año: 1976 ,
-        genero: "Drama" ,
-        director: "Martin Scorsese" ,
-        img: "../img/taxi-driver.jpg"
-    },
-    {
-        nombre: "The Wolf of Wall Street" ,
-        año: 2013 ,
-        genero: "Comedia" ,
-        director: "Martin Scorsese" ,
-        img: "../img/the-wolf-of-wall-street.jpg"
-    },
-    {
-        nombre: "The Irishman" ,
-        año: 2019 ,
-        genero: "Drama" ,
-        director: "Martin Scorsese" ,
-        img: "../img/the-irishman.jpg"
-    },
-    {
-        nombre: "Pulp Fiction" ,
-        año: 1994 ,
-        genero: "Crimen" ,
-        director: "Quentin Tarantino" ,
-        img: "../img/pulp-fiction.jpg"
-    },
-    {
-        nombre: "Once Upon a Time in Hollywood" ,
-        año: 2019 ,
-        genero: "Drama" ,
-        director: "Quentin Tarantino" ,
-        img: "../img/once-upon-a-time.jpg"
-    },
-    {
-        nombre: "Inglourious Basterds" ,
-        año: 2009 ,
-        genero: "Acción" ,
-        director: "Quentin Tarantino" ,
-        img: "../img/inglourious-basterds.jpg"
-    },
-    {
-        nombre: "Kill Bill: Vol. 1" ,
-        año: 2003 ,
-        genero: "Acción" ,
-        director: "Quentin Tarantino" ,
-        img: "../img/kill-bill1.jpg"
-    },
-    {
-        nombre: "Kill Bill: Vol. 2" ,
-        año: 2004 ,
-        genero: "Acción" ,
-        director: "Quentin Tarantino" ,
-        img: "../img/kill-bill2.jpg"
-    }
-]
-
 const btn = document.getElementById("btn");
 const search = document.querySelector("#search");
 const container = document.getElementById("containerSearch");
 
-const filtrar = () => {
+const filtrar = async(text) => {
     container.innerHTML = ""
-    const texto = search.value.toLowerCase();
+    const respuesta = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=4c42277c85a8a8f307d358420965071c&query=${text}&include_adult=false`);
+    const datos = await respuesta.json();
+    const moviesResults = datos.results
 
-    for(pelicula of peliculas){
-        let nombre = pelicula.nombre.toLowerCase();
-        let director = pelicula.director.toLowerCase();
-        let genero = pelicula.genero.toLowerCase();
-
-        if(nombre.includes(texto) || director.includes(texto) || genero.includes(texto)){
-            container.classList.add("search-div");
-            const div = document.createElement("div");
-            div.classList.add("pelicula");
-            div.innerHTML = `
-            <img class="pelicula-img" src="${pelicula.img}" alt="${pelicula.nombre}">
-            `
-            container.append(div);
+    container.classList.add("search-div");
+    let peliculas = "";
+    moviesResults.forEach(pelicula => {
+        if (pelicula.poster_path && pelicula.backdrop_path) {
+            peliculas += `
+            <div id="${pelicula.id}" class="pelicula">
+                <img class="pelicula-img" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
+            </div>`
+            container.innerHTML = peliculas;
         }
+    });
+    const movies = document.getElementsByClassName('pelicula');
+    for (let i = 0; i < movies.length; i++) {
+        movies[i].addEventListener('click', (e) => {
+            const id = e.currentTarget.getAttribute('id');
+            getInfo("movie", id);
+        })
     }
     if (container.innerHTML === "") {
         container.innerHTML = `
@@ -93,19 +32,20 @@ const filtrar = () => {
     }
     if(search.value === ""){
         container.classList.remove("search-div");
-        container.innerHTML = ""
+        container.innerHTML = "";
     }
 }
 
-search.addEventListener("keyup", () => {
-    filtrar();
+search.addEventListener("keydown", () => {
+    if(search.value !== ""){
+        filtrar(search.value);
+    }
 });
 
 // Transicion de Lupa
 const searchInput = document.getElementById('searchInput');
 
-btn.addEventListener("click", (e) => {
-    console.log(e)
+btn.addEventListener("click", () => {
     if (!searchInput.classList.contains('searchInput')) {
         searchInput.classList.add('searchInput');
         search.style.width = '100%'
