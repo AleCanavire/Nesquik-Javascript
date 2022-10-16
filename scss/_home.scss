@@ -14,8 +14,8 @@
     position: fixed;
     top: 0;
     z-index: 20;
-    background-color: rgb(20, 20, 20);
     background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+    transition: background-color .4s;
     .logo-links{
         display: flex;
         align-items: center;
@@ -123,14 +123,173 @@
     padding:0 4% !important;
 }
 
+.main{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .teaser{
+        position: relative;
+        padding-top: 56.25%;
+        z-index: 2;
+        .player{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    .backdropHero{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 1;
+        transition: opacity .5s ease-in-out;
+    }
+    .logoInfo{
+        margin-left: 4%;
+        position: absolute;
+        width: 35.5%;
+        bottom: 35%;
+        left: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        .logoOverview{
+            width: 100%;
+            margin-bottom: 1.5vw;
+            .mainLogo{
+                width: 100%;
+                margin-bottom: 1.2vw;
+                transition-property: transform;
+                transform-origin: left bottom;
+                transition-duration: 1300ms;
+            }
+            .mainOverview{
+                color: #fff;
+                font-size: 1.25vw;
+                font-weight: 400;
+                line-height: normal;
+                text-align: justify;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, .45);
+                transition-property: transform, opacity;
+                transform-origin: left bottom;
+                transition-duration: 1300ms;
+            }
+        }
+        .reproducir{
+            background-color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            margin: 0.25em;
+            margin-right: 0.5em;
+            &:hover{
+                background-color: #e6e6e6!important;
+                cursor: pointer;
+            }
+            svg{
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+            }
+            span{
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+        .moreInfo{
+            background-color: rgba(109, 109, 110, 0.7);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            margin: 0.25em;
+            &:hover{
+                background-color: rgba(109, 109, 110, 0.4) !important;
+                cursor: pointer;
+            }
+            svg{
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+            }
+            span{
+                color: #fff;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+    }
+    .soundAge{
+        position: absolute;
+        bottom: 35%;
+        right: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        .sound{
+            position: relative;
+            margin-right: 1.1vw;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            &:hover{
+                border: 2px solid rgb(255, 255, 255);
+                cursor: pointer;
+                transition: opacity .7s ease;
+                opacity: 1;
+            }
+            svg{
+                width: 22px;
+                height: 22px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .age{
+            height: 2.4vw;
+            padding: 0.5vw 3.5vw 0.5vw 0.8vw;
+            background-color: rgba(51, 51, 51, .6);
+            border-left: 3px #fff solid;
+            user-select: none;
+            span{
+                color: #fff;
+                font-size: 1.1vw;
+            }
+        }
+    }
+    .gradient{
+        background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 29%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414);
+        height: 14.7vw;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+    }
+}
+
 .container{
     min-height: 100vh;
     position: relative;
     overflow: hidden;
     padding-top: 40%;
+    z-index: 15;
     .movies{
         position: relative;
-        margin: 3vw 0;
+        margin: 3.5vw 0;
         &:hover > .arrow_prev svg, &:hover > .arrow_next svg{
             width: 35%;
         }
@@ -260,30 +419,48 @@
     background: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    align-items: baseline;
+    &::-webkit-scrollbar{
+        display: none;
+    }
     .movieInfo{
-        position: fixed;
+        position: relative;
         background-color: #181818;
-        top: 50%;
-        left: 50%;
+        top: 2em;
         width: 900px;
         min-width: 850px;
         z-index: 20;
         border-radius: 6px;
         overflow: hidden;
         box-shadow: 0px 3px 10px rgba(0, 0, 0, .75);
-        transform: translate(-50%, -50%);
         .imgInfo{
             position: relative;
             width: 100%;
-            .backdrop{
-                width: 100%;
+            #backdrop{
+                .player{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                };
+                .backdrop{
+                    width: 100%;
+                    position: relative;
+                    z-index: 2;
+                    opacity: 1;
+                    transition: opacity 0.5s ease-in-out;
+                }
             }
+            
             .logoBtns{
                 position: absolute;
                 margin: 0 0 45px 45px;
                 bottom: 0;
                 left: 0;
-                width: 35%;
+                width: 30%;
                 z-index: 3;
                 display: flex;
                 flex-wrap: wrap;
@@ -387,13 +564,41 @@
                     }
                 }
             }
+            .sound{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                border-radius: 50%;
+                margin: 0 45px 45px 0;
+                width: 40px;
+                height: 40px;
+                background-color: rgba(42, 42, 42, .6);
+                border: 2px solid rgba(255, 255, 255, .5);
+                opacity: .5;
+                z-index: 3;
+                transition: opacity .7s ease;
+                &:hover{
+                    border: 2px solid rgb(255, 255, 255);
+                    cursor: pointer;
+                    transition: opacity .7s ease;
+                    opacity: 1;
+                }
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
             .shadowBack{
                 position: absolute;
                 bottom: 0;
                 width: 100%;
                 height: 100%;
                 z-index: 2;
-                background: linear-gradient(0deg, #181818,transparent 40%);
+                background: linear-gradient(0deg, #181818,transparent 50%);
             }
         }
         .info{
@@ -453,7 +658,7 @@
                     margin-top: 1.5em;
                     p{
                         color: #fff;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-weight: 400;
                         line-height: 24px;
                     }
