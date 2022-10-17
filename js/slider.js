@@ -72,12 +72,12 @@ const mainInfo = async(type, id) => {
     const logoInfo = document.getElementById('logoInfo');
     const logoMain = await getLogos(type, id);
 
-    const respuesta = await fetch(`http://api.themoviedb.org/3/${type}/${id}?api_key=4c42277c85a8a8f307d358420965071c&language=es-ES`);
+    const respuesta = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=4c42277c85a8a8f307d358420965071c&language=es-ES`);
     const datos = await respuesta.json();
 
     logoInfo.innerHTML = `
     <div class="logoOverview">
-        <img class="mainLogo" src="http://image.tmdb.org/t/p/original/${logoMain}">
+        <img class="mainLogo" src="https://image.tmdb.org/t/p/original/${logoMain}">
         <p class="mainOverview">${datos.overview}</p>
     </div>
     <button id="btnPlay" class="reproducir">
@@ -93,7 +93,7 @@ const mainInfo = async(type, id) => {
     const mainBackdrop = document.getElementById('mainBackdrop');
     const img = document.createElement('img');
     img.classList.add('backdropHero');
-    img.setAttribute('src', `http://image.tmdb.org/t/p/original/${datos.backdrop_path}`)
+    img.setAttribute('src', `https://image.tmdb.org/t/p/original/${datos.backdrop_path}`)
     mainBackdrop.appendChild(img);
 
     // ----- TRANSITION BACKDROP HERO -----
@@ -195,7 +195,7 @@ const bgInfo = document.getElementById('bgInfo');
 const movieInfo = document.getElementById('movieInfo');
 
 const getInfo = async(type, id) => {
-    const respuesta = await fetch(`http://api.themoviedb.org/3/${type}/${id}?api_key=4c42277c85a8a8f307d358420965071c&language=es-ES`);
+    const respuesta = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=4c42277c85a8a8f307d358420965071c&language=es-ES`);
     const datos = await respuesta.json();
 
     // ----- DURACION -----
@@ -234,7 +234,7 @@ const getInfo = async(type, id) => {
         <div class="imgInfo">
             <div id="backdrop">
                 <iframe id="player" class="player" width="900" height="510" src="https://www.youtube.com/embed/${videoKey}?autoplay=1&controls=0&iv_load_policy=3&showinfo=1&rel=0&fs=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <img class="backdrop" src="http://image.tmdb.org/t/p/w1280/${datos.backdrop_path}">
+                <img class="backdrop" src="https://image.tmdb.org/t/p/w1280/${datos.backdrop_path}">
             </div>
             <div class="logoBtns">
                 <button id="btnPlay" class="reproducir">
@@ -282,11 +282,11 @@ const getInfo = async(type, id) => {
         <div class="imgInfo">
             <div id="backdrop">
                 <iframe id="player" class="player" width="900" height="510" src="https://www.youtube.com/embed/${videoKey}?autoplay=1&controls=0&iv_load_policy=3&showinfo=1&rel=0&fs=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <img class="backdrop" src="http://image.tmdb.org/t/p/w1280/${datos.backdrop_path}">
+                <img class="backdrop" src="https://image.tmdb.org/t/p/w1280/${datos.backdrop_path}">
             </div>
             <div class="logoBtns">
                 <div class="divLogo">
-                    <img class="logo" src="http://image.tmdb.org/t/p/w300/${logoURL}">
+                    <img class="logo" src="https://image.tmdb.org/t/p/w300/${logoURL}">
                 </div>
                 <button id="btnPlay" class="reproducir">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z" fill="currentColor"></path></svg>
@@ -337,7 +337,7 @@ const getInfo = async(type, id) => {
 
 // ====================== CARGAR PELICULAS ======================
 const cargarPeliculas = async(type, movies, movies2, title, nombre, num, container) => {
-    const respuesta = await fetch(`http://api.themoviedb.org/3/${movies}?api_key=4c42277c85a8a8f307d358420965071c&${movies2}`);
+    const respuesta = await fetch(`https://api.themoviedb.org/3/${movies}?api_key=4c42277c85a8a8f307d358420965071c&${movies2}`);
     const datos = await respuesta.json()
 
     crearSeccion(title, nombre, num);
@@ -346,7 +346,7 @@ const cargarPeliculas = async(type, movies, movies2, title, nombre, num, contain
     moviesResults.forEach(pelicula => {
         peliculas += `
         <div id="${pelicula.id}" class="card">
-            <img class="cardImg" src="http://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
+            <img class="cardImg" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
         </div>`
         document.getElementById(container).innerHTML = peliculas;
     });
