@@ -387,11 +387,11 @@
           .home-body .nav-home .logo-links .nav-logo a svg {
             height: 25px; }
       .home-body .nav-home .logo-links .nav-links {
-        margin-left: 44px; }
+        margin-left: 3vw; }
         .home-body .nav-home .logo-links .nav-links ul {
           display: flex;
           list-style: none;
-          gap: 18px; }
+          gap: 20px; }
           .home-body .nav-home .logo-links .nav-links ul li:first-child a {
             font-weight: 600;
             color: #fff; }
@@ -501,47 +501,47 @@
           transform-origin: left bottom;
           transition-duration: 1300ms; }
       .home-body .main .logoInfo .reproducir {
+        height: 3vw;
+        margin-right: .75vw;
         background-color: #fff;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 10px 25px;
+        padding: 0 1.8vw;
         border: none;
         border-radius: 5px;
-        margin: 0.25em;
-        margin-right: 0.5em; }
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center; }
         .home-body .main .logoInfo .reproducir:hover {
           background-color: #e6e6e6 !important;
           cursor: pointer; }
         .home-body .main .logoInfo .reproducir svg {
-          width: 30px;
-          height: 30px;
+          width: 1.8vw;
+          height: 1.8vw;
           margin-right: 10px; }
         .home-body .main .logoInfo .reproducir span {
           font-family: Arial, Helvetica, sans-serif;
           font-weight: 600;
-          font-size: 20px; }
+          font-size: 1.2vw; }
       .home-body .main .logoInfo .moreInfo {
+        height: 3vw;
         background-color: rgba(109, 109, 110, 0.7);
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        padding: 10px 25px;
+        padding: 0 1.8vw;
         border: none;
-        border-radius: 5px;
-        margin: 0.25em; }
+        border-radius: 5px; }
         .home-body .main .logoInfo .moreInfo:hover {
           background-color: rgba(109, 109, 110, 0.4) !important;
           cursor: pointer; }
         .home-body .main .logoInfo .moreInfo svg {
-          width: 30px;
-          height: 30px;
+          width: 1.8vw;
+          height: 1.8vw;
           margin-right: 10px; }
         .home-body .main .logoInfo .moreInfo span {
           color: #fff;
           font-family: Arial, Helvetica, sans-serif;
           font-weight: 600;
-          font-size: 20px; }
+          font-size: 1.2vw; }
     .home-body .main .soundAge {
       position: absolute;
       bottom: 35%;
@@ -553,8 +553,8 @@
         position: relative;
         margin-right: 1.1vw;
         border-radius: 50%;
-        width: 45px;
-        height: 45px;
+        width: 2.4vw;
+        height: 2.4vw;
         background-color: transparent;
         border: 1px solid rgba(255, 255, 255, 0.7); }
         .home-body .main .soundAge .sound:hover {
@@ -563,8 +563,8 @@
           transition: opacity .7s ease;
           opacity: 1; }
         .home-body .main .soundAge .sound svg {
-          width: 22px;
-          height: 22px;
+          width: 1.4vw;
+          height: 1.4vw;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -591,7 +591,7 @@
     position: relative;
     overflow: hidden;
     padding-top: 40%;
-    z-index: 15; }
+    z-index: 5; }
     .home-body .container .movies {
       position: relative;
       margin: 3.5vw 0; }
@@ -599,10 +599,42 @@
         width: 35%; }
       .home-body .container .movies:hover > .slider .slick-dots {
         opacity: 1; }
-      .home-body .container .movies h1 {
+      .home-body .container .movies:hover > .title svg {
+        opacity: 1; }
+      .home-body .container .movies .title {
         margin: 0 4% 0.5em;
-        color: #e5e5e5;
-        font-size: 1.4vw; }
+        display: flex;
+        align-items: center;
+        cursor: pointer; }
+        .home-body .container .movies .title:hover > h1 {
+          color: #fff; }
+        .home-body .container .movies .title:hover > span {
+          transform: translateX(0);
+          opacity: 1; }
+        .home-body .container .movies .title:hover > svg {
+          transform: scale(0.9) translateX(0); }
+        .home-body .container .movies .title h1 {
+          color: #e5e5e5;
+          font-size: 1.4vw;
+          margin-right: 1vw; }
+        .home-body .container .movies .title span {
+          color: #54b9c5;
+          font-size: .9vw;
+          line-height: .8vw;
+          margin-right: 4px;
+          font-weight: 600;
+          transform: translateX(-100%);
+          opacity: 0;
+          transition-property: transform, opacity;
+          transition-duration: 1s; }
+        .home-body .container .movies .title svg {
+          width: 18px;
+          height: 18px;
+          fill: #54b9c5;
+          opacity: 0;
+          transform: scale(1) translateX(-7.5vw);
+          transition-property: transform;
+          transition-duration: 1s; }
       .home-body .container .movies .slider .slick-dots {
         width: initial;
         position: absolute;

@@ -1,6 +1,7 @@
 const btn = document.getElementById("btn");
 const search = document.querySelector("#search");
 const container = document.getElementById("containerSearch");
+const generalContainer = document.getElementById("generalContainer");
 
 const filtrar = async(text) => {
     container.innerHTML = ""
@@ -32,12 +33,15 @@ const filtrar = async(text) => {
     }
     if(search.value === ""){
         container.classList.remove("search-div");
+        generalContainer.style.zIndex = null;
+        generalContainer.style.zIndex = "5"
         container.innerHTML = "";
     }
 }
 
 search.addEventListener("keydown", () => {
     if(search.value !== ""){
+        generalContainer.style.zIndex = "15"
         filtrar(search.value);
     }
 });
