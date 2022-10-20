@@ -404,30 +404,146 @@
             .home-body .nav-home .logo-links .nav-links ul li a:hover {
               color: #b3b3b3;
               transition: color .4s; }
-    .home-body .nav-home .search-container .searchInput {
-      width: 275px;
-      height: 35px;
+    .home-body .nav-home .icons {
       display: flex;
-      border: 1px solid #e5e5e5;
-      background-color: black; }
-    .home-body .nav-home .search-container #searchInput button {
-      border: none;
-      background-color: transparent;
-      height: 100%;
-      padding: 5px 10px 5px 5px;
-      cursor: pointer; }
-    .home-body .nav-home .search-container #searchInput input {
-      background-color: transparent;
-      color: #e5e5e5;
-      font-size: .9rem;
-      border: none;
-      height: 100%;
-      width: 0; }
-      .home-body .nav-home .search-container #searchInput input:focus-visible {
-        outline: none; }
-      .home-body .nav-home .search-container #searchInput input::placeholder {
-        color: #8c8c8c;
-        font-size: .9rem; }
+      align-items: center; }
+      .home-body .nav-home .icons .search-container .searchInput {
+        width: 275px;
+        height: 35px;
+        display: flex;
+        border: 1px solid #e5e5e5;
+        background-color: black; }
+      .home-body .nav-home .icons .search-container #searchInput button {
+        border: none;
+        background-color: transparent;
+        height: 100%;
+        padding: 5px 14px 5px 5px;
+        cursor: pointer; }
+      .home-body .nav-home .icons .search-container #searchInput input {
+        background-color: transparent;
+        color: #e5e5e5;
+        font-size: .9rem;
+        border: none;
+        height: 100%;
+        width: 0; }
+        .home-body .nav-home .icons .search-container #searchInput input:focus-visible {
+          outline: none; }
+        .home-body .nav-home .icons .search-container #searchInput input::placeholder {
+          color: #8c8c8c;
+          font-size: .9rem; }
+      .home-body .nav-home .icons .notif {
+        margin-right: 15px;
+        margin-top: 0.2em;
+        padding: 2px 6px 3px; }
+        .home-body .nav-home .icons .notif svg {
+          cursor: pointer; }
+      .home-body .nav-home .icons .account {
+        display: flex;
+        align-items: center;
+        cursor: pointer; }
+        .home-body .nav-home .icons .account:hover > .profile .arrowClose {
+          transition: transform .4s ease;
+          transform: rotate(180deg); }
+        .home-body .nav-home .icons .account:hover > .profile .profileSelect .arrowOpen {
+          opacity: 1; }
+        .home-body .nav-home .icons .account .profile {
+          display: flex;
+          align-items: center; }
+          .home-body .nav-home .icons .account .profile .profileSelect {
+            position: relative;
+            height: 32px;
+            width: 32px; }
+            .home-body .nav-home .icons .account .profile .profileSelect img {
+              height: 32px;
+              width: 32px;
+              border-radius: 4px; }
+            .home-body .nav-home .icons .account .profile .profileSelect .arrowOpen {
+              position: absolute;
+              left: 50%;
+              bottom: -19px;
+              width: 0;
+              height: 0;
+              margin-left: -8px;
+              border: 8px solid transparent;
+              border-bottom-color: #e5e5e5;
+              opacity: 0;
+              transition-duration: 150ms;
+              transition-property: opacity;
+              cursor: default; }
+          .home-body .nav-home .icons .account .profile .arrowClose {
+            border-color: #fff transparent;
+            border-style: solid;
+            border-width: 5px 5px 0;
+            width: 0;
+            height: 0;
+            margin-left: 10px;
+            transition: transform .4s ease; }
+        .home-body .nav-home .icons .account .accountMenu {
+          font-family: 'Roboto', sans-serif;
+          cursor: default;
+          position: fixed;
+          top: 70px;
+          right: 0;
+          width: 220px;
+          margin-right: 4%;
+          background-color: rgba(0, 0, 0, 0.9);
+          border: 1px rgba(255, 255, 255, 0.15) solid;
+          opacity: 0;
+          transition-duration: 150ms;
+          transition-property: opacity; }
+          .home-body .nav-home .icons .account .accountMenu .profiles .profilesList {
+            padding: 10px 0 5px; }
+            .home-body .nav-home .icons .account .accountMenu .profiles .profilesList li {
+              display: flex;
+              align-items: center;
+              list-style: none;
+              padding: 5px 10px; }
+              .home-body .nav-home .icons .account .accountMenu .profiles .profilesList li img {
+                margin-right: 10px;
+                width: 32px;
+                height: 32px;
+                border-radius: 4px;
+                cursor: pointer; }
+                .home-body .nav-home .icons .account .accountMenu .profiles .profilesList li img:hover + p {
+                  text-decoration: underline; }
+              .home-body .nav-home .icons .account .accountMenu .profiles .profilesList li p {
+                color: white;
+                font-size: 13px;
+                width: 100px;
+                cursor: pointer; }
+                .home-body .nav-home .icons .account .accountMenu .profiles .profilesList li p:hover {
+                  text-decoration: underline; }
+          .home-body .nav-home .icons .account .accountMenu .settings ul {
+            padding-bottom: 10px; }
+            .home-body .nav-home .icons .account .accountMenu .settings ul li {
+              padding: 5px 10px;
+              display: flex;
+              align-items: center;
+              list-style: none; }
+              .home-body .nav-home .icons .account .accountMenu .settings ul li svg {
+                color: #b3b3b3;
+                box-sizing: initial;
+                padding: 0 13px 0 5px;
+                cursor: pointer; }
+              .home-body .nav-home .icons .account .accountMenu .settings ul li p {
+                color: white;
+                font-size: 13px;
+                cursor: pointer; }
+                .home-body .nav-home .icons .account .accountMenu .settings ul li p:hover {
+                  text-decoration: underline; }
+          .home-body .nav-home .icons .account .accountMenu .exitAccount {
+            padding: 10px 0;
+            border-top: 1px rgba(255, 255, 255, 0.25) solid;
+            display: flex;
+            justify-content: center; }
+            .home-body .nav-home .icons .account .accountMenu .exitAccount a {
+              padding: 5px 10px;
+              color: white;
+              font-size: 13px;
+              line-height: 16px;
+              text-decoration: none; }
+              .home-body .nav-home .icons .account .accountMenu .exitAccount a:hover {
+                text-decoration: underline; }
   .home-body .search-div {
     padding: 8% 4% 0;
     position: absolute;
@@ -499,7 +615,8 @@
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
           transition-property: transform, opacity;
           transform-origin: left bottom;
-          transition-duration: 1300ms; }
+          transition-duration: 1300ms;
+          user-select: none; }
       .home-body .main .logoInfo .reproducir {
         height: 3vw;
         margin-right: .75vw;
@@ -612,7 +729,7 @@
           transform: translateX(0);
           opacity: 1; }
         .home-body .container .movies .title:hover > svg {
-          transform: scale(0.9) translateX(0); }
+          transform: scale(0.8) translateX(0); }
         .home-body .container .movies .title h1 {
           color: #e5e5e5;
           font-size: 1.4vw;
@@ -626,15 +743,15 @@
           transform: translateX(-100%);
           opacity: 0;
           transition-property: transform, opacity;
-          transition-duration: 1s; }
+          transition-duration: .5s; }
         .home-body .container .movies .title svg {
-          width: 18px;
-          height: 18px;
+          width: 14px;
+          height: 14px;
           fill: #54b9c5;
           opacity: 0;
           transform: scale(1) translateX(-7.5vw);
           transition-property: transform;
-          transition-duration: 1s; }
+          transition-duration: .5s; }
       .home-body .container .movies .slider .slick-dots {
         width: initial;
         position: absolute;
@@ -755,6 +872,7 @@
           z-index: 1; }
         .home-body .bgInfo .movieInfo .imgInfo #backdrop .backdrop {
           width: 100%;
+          height: 510px;
           position: relative;
           z-index: 2;
           opacity: 1;
