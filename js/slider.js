@@ -45,7 +45,6 @@ const getLogos = async(type, id) => {
     } catch (error) {
         console.log('Error', error);
     }
-    
 }
 
 // ==================== MOVIE VIDEOS ====================
