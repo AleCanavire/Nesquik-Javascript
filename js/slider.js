@@ -201,6 +201,9 @@ const getInfo = async(type, id) => {
         // TITLE
         const title = datos.name || datos.title || datos.original_name || datos.original_title
 
+        const titlePage = document.getElementById('titlePage');
+        titlePage.innerText = `${title}`
+
         // ----- VARS -----
         logoURL = await getLogos(type, id);
         cast = await getCredits(type, id);
@@ -387,6 +390,8 @@ const cargarPeliculas = async(type, movies, movies2, title, nombre, num, contain
                 movieInfo.classList.remove('movieInfo');
                 movieInfo.innerHTML = "";
                 bgInfo.classList.remove('bgInfo');
+                const titlePage = document.getElementById('titlePage');
+                titlePage.innerText = "Home - Nesquik";
                 console.clear();
             }
         });
