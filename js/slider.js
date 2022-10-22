@@ -93,6 +93,81 @@ const getCreators = async(type, id) => {
     }
 }
 
+// ==================== SIMILAR TITLES ====================
+const getSimilar = async(type, id) => {
+    const respuesta = await fetch(`https://api.themoviedb.org/3/${type}/${id}/recommendations?api_key=4c42277c85a8a8f307d358420965071c&language=es-ES`);
+    try {
+        const datos = await respuesta.json()
+        const filter = datos.results.filter(movie => movie.backdrop_path);
+        const moviesResults = filter.slice(0, 9);
+
+        const similarTitles = document.getElementById('similarTitles');
+        let titles = "";
+        moviesResults.forEach(async title => {
+            let logo = await getLogos(type, title.id)
+            // ----- FOR YOU -----
+            const forYou = Math.floor((Math.random() * (99 - 88)) + 88);
+            // ----- FECHA -----
+            const date = title.release_date || title.last_air_date || title.first_air_date;
+            
+            if (logo !== undefined) {
+                titles += `
+                <div id="${title.id}" class="titleCard">
+                    <div class="poster">
+                        <img class="titleImg" src="https://image.tmdb.org/t/p/w300/${title.backdrop_path}">
+                        <div class="titleLogo">
+                            <img src="https://image.tmdb.org/t/p/w154/${logo}">
+                        </div>
+                        <svg class="play" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="titleCard-playSVG"><path d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z" fill="currentColor"></path></svg>
+                    </div>
+                    <div class="titleMeta">
+                        <div class="metaL">
+                            <span class="forYou">${forYou} % para ti</span>
+                            <span class="age">18+</span>
+                            <span class="year">${date.slice(0, 4)}</span>
+                        </div>
+                        <div class="metaR">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 2V11H2V13H11V22H13V13H22V11H13V2H11Z" fill="currentColor"></path></svg>
+                        </div>
+                    </div>
+                    <div class="overview">
+                        <p>${title.overview}</p>
+                    </div>
+                </div>`
+            } else{
+                titles += `
+                <div id="${title.id}" class="titleCard">
+                    <div class="poster">
+                        <img class="titleImg" src="https://image.tmdb.org/t/p/w300/${title.backdrop_path}">
+                        <svg class="play" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="titleCard-playSVG"><path d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z" fill="currentColor"></path></svg>
+                    </div>
+                    <div class="titleMeta">
+                        <div class="metaL">
+                            <span class="forYou">${forYou} % para ti</span>
+                            <span class="age">18+</span>
+                            <span class="year">${date.slice(0, 4)}</span>
+                        </div>
+                        <div class="metaR">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 2V11H2V13H11V22H13V13H22V11H13V2H11Z" fill="currentColor"></path></svg>
+                        </div>
+                    </div>
+                    <div class="overview">
+                        <p>${title.overview}</p>
+                    </div>
+                </div>`
+            }
+            similarTitles.innerHTML = titles;
+        });
+        $(similarTitles).on('click', '.titleCard', function (e){
+            const id = $(e.currentTarget).attr("id");
+            getInfo(type, id);
+            console.clear();
+        });
+    } catch (error) {
+        console.log('Error', error);
+    }
+}
+
 // ==================== INFORMACION ====================
 const bgInfo = document.getElementById('bgInfo');
 const movieInfo = document.getElementById('movieInfo');
@@ -123,6 +198,8 @@ const getInfo = async(type, id) => {
         const date = datos.release_date || datos.last_air_date || datos.first_air_date;
         // ----- FOR YOU -----
         const forYou = Math.floor((Math.random() * (99 - 88)) + 88);
+        // TITLE
+        const title = datos.name || datos.title || datos.original_name || datos.original_title
 
         // ----- VARS -----
         logoURL = await getLogos(type, id);
@@ -175,8 +252,22 @@ const getInfo = async(type, id) => {
                 </div>
                 <div class="metadataR">
                     <div class="created"><span>Elenco:</span> ${cast}, y más</div>
-                    <div class="genres"><span>Géneros:</span> ${gene}</div>
+                    <div class="created"><span>Géneros:</span> ${gene}</div>
                     <div class="created"><span>Creado por:</span> ${creators}</div>
+                </div>
+                <div class="similar">
+                    <h3>Más títulos similares a este</h3>
+                    <div class="titlesContainer">
+                        <div id="similarTitles" class="similarTitles">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="acercaDe">
+                    <h3>Acerca de <span>${title}</span></h3>
+                    <div class="created"><span>Creado por:</span> ${creators}</div>
+                    <div class="created"><span>Elenco:</span> ${cast}, y más</div>
+                    <div class="created"><span>Géneros:</span> ${gene}</div>
                 </div>
             </div>
             `
@@ -186,6 +277,7 @@ const getInfo = async(type, id) => {
                     backdrop.style.opacity = '0';
                 }, 5000);
             }
+            await getSimilar(type, id);
         } else if (logoURL !== undefined){
             movieInfo.innerHTML = `
             <div class="imgInfo">
@@ -231,8 +323,22 @@ const getInfo = async(type, id) => {
                 </div>
                 <div class="metadataR">
                     <div class="created"><span>Elenco:</span> ${cast}, y más</div>
-                    <div class="genres"><span>Géneros:</span> ${gene}</div>
+                    <div class="created"><span>Géneros:</span> ${gene}</div>
                     <div class="created"><span>Creado por:</span> ${creators}</div>
+                </div>
+                <div class="similar">
+                    <h3>Más títulos similares a este</h3>
+                    <div class="titlesContainer">
+                        <div id="similarTitles" class="similarTitles">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="acercaDe">
+                    <h3>Acerca de <span>${title}</span></h3>
+                    <div class="created"><span>Creado por:</span> ${creators}</div>
+                    <div class="created"><span>Elenco:</span> ${cast}, y más</div>
+                    <div class="created"><span>Géneros:</span> ${gene}</div>
                 </div>
             </div>
             `
@@ -242,6 +348,7 @@ const getInfo = async(type, id) => {
                     backdrop.style.opacity = '0';
                 }, 5000);
             }
+            await getSimilar(type, id);
         }
     } catch (error) {
         console.log('Error', error);
@@ -270,6 +377,7 @@ const cargarPeliculas = async(type, movies, movies2, title, nombre, num, contain
         $(`#${nombre}Slider`).on('click', '.card', function (e){
             const id = $(e.currentTarget).attr("id");
             getInfo(type, id);
+            console.clear();
         });
     
         // ---------- EXIT CARD INFO ----------
@@ -278,7 +386,8 @@ const cargarPeliculas = async(type, movies, movies2, title, nombre, num, contain
             if (!movieInfo.contains(e.target) || exit.contains(e.target)){
                 movieInfo.classList.remove('movieInfo');
                 movieInfo.innerHTML = "";
-                bgInfo.classList.remove('bgInfo')
+                bgInfo.classList.remove('bgInfo');
+                console.clear();
             }
         });
     
