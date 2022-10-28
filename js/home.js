@@ -159,17 +159,6 @@ const mainInfo = async(type, id) => {
         img.setAttribute('src', `https://image.tmdb.org/t/p/original/${datos.backdrop_path}`)
         mainBackdrop.appendChild(img);
     
-        // ----- TRANSITION BACKDROP HERO -----
-        setTimeout(function(){
-            const backdrop = document.querySelector('.backdropHero');
-            backdrop.style.opacity = '0';
-            const mainLogo = document.querySelector('.mainLogo');
-            mainLogo.style.transform = 'scale(0.7) translate3d(0, 8vw, 0)';
-            const mainOverview = document.querySelector('.mainOverview');
-            mainOverview.style.transform = 'scale(0.0)';
-            mainOverview.style.opacity = '0';
-        }, 4500);
-    
         // ----- MORE INFO -----
         const moreInfo = document.getElementById('moreInfo');
         moreInfo.addEventListener('click', () => {
@@ -201,10 +190,20 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-var done = false;
 function onPlayerStateChange(event) {
     // ----- VOLUME BUTTON -----
-    if (event.data == YT.PlayerState.PLAYING && !done) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        // ----- TRANSITION BACKDROP HERO -----
+        setTimeout(function(){
+            const backdrop = document.querySelector('.backdropHero');
+            backdrop.style.opacity = '0';
+            const mainLogo = document.querySelector('.mainLogo');
+            mainLogo.style.transform = 'scale(0.7) translate3d(0, 8vw, 0)';
+            const mainOverview = document.querySelector('.mainOverview');
+            mainOverview.style.transform = 'scale(0.0)';
+            mainOverview.style.opacity = '0';
+        }, 4500);
+
         const sound = document.getElementById('sound');
         sound.addEventListener('click', () => {
             if (player.isMuted() == false){
@@ -219,7 +218,6 @@ function onPlayerStateChange(event) {
                 `
             }
         })
-        done = true;
     }
     // ----- RESTART BUTTON -----
     if (event.data == YT.PlayerState.ENDED) {
