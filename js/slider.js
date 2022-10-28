@@ -274,12 +274,6 @@ const getInfo = async(type, id) => {
                 </div>
             </div>
             `
-            if (videoKey !== undefined) {
-                setTimeout(function(){
-                    const backdrop = document.querySelector('.backdrop');
-                    backdrop.style.opacity = '0';
-                }, 5000);
-            }
             await getSimilar(type, id);
         } else if (logoURL !== undefined){
             movieInfo.innerHTML = `
@@ -346,13 +340,13 @@ const getInfo = async(type, id) => {
                 </div>
             </div>
             `
-            if (videoKey !== undefined) {
-                setTimeout(function(){
-                    const backdrop = document.querySelector('.backdrop');
-                    backdrop.style.opacity = '0';
-                }, 5000);
-            }
             await getSimilar(type, id);
+        }
+        if (videoKey !== undefined) {
+            setTimeout(async function(){
+                const backdrop = document.querySelector('.backdrop');
+                backdrop.style.opacity = '0';
+            }, 5000);
         }
     } catch (error) {
         console.log('Error', error);
@@ -378,9 +372,13 @@ const cargarPeliculas = async(type, movies, movies2, title, nombre, num, contain
         });
         
         // ---------- PEDIR INFO ----------
-        $(`#${nombre}Slider`).on('click', '.card', function (e){
+        $(`#${nombre}Slider`).on('click', '.card', async function (e){
             const id = $(e.currentTarget).attr("id");
-            getInfo(type, id);
+            await getInfo(type, id);
+            movieInfo.clientHeight
+            movieInfo.style.opacity = "1";
+            movieInfo.style.transform = "scale(1.0)";
+            bgInfo.style.opacity = "1";
             console.clear();
         });
     
@@ -388,9 +386,16 @@ const cargarPeliculas = async(type, movies, movies2, title, nombre, num, contain
         window.addEventListener('click', function(e){
             const exit = document.getElementById('exit');
             if (!movieInfo.contains(e.target) || exit.contains(e.target)){
-                movieInfo.classList.remove('movieInfo');
-                movieInfo.innerHTML = "";
-                bgInfo.classList.remove('bgInfo');
+                movieInfo.style.opacity = "0";
+                movieInfo.style.transform = "scale(0.90)";
+                bgInfo.style.opacity = "0";
+                if (movieInfo.innerHTML !== "") {
+                    setTimeout(() => {
+                    movieInfo.classList.remove('movieInfo');
+                    movieInfo.innerHTML = "";
+                    bgInfo.classList.remove('bgInfo');
+                }, 300);
+                }
                 const titlePage = document.getElementById('titlePage');
                 titlePage.innerText = "Home - Nesquik";
                 console.clear();
@@ -448,7 +453,7 @@ const cargarPeliculas = async(type, movies, movies2, title, nombre, num, contain
     }
 }
 
-cargarPeliculas("tv", "discover/tv", "sort_by=first_air_date.desc&with_networks=213&with_status=3&page=2", "Agregados recientemente","latest", "1", "latestSlider");
+cargarPeliculas("tv", "discover/tv", "sort_by=first_air_date.desc&with_networks=213&with_status=3&page=4", "Agregados recientemente","latest", "1", "latestSlider");
 cargarPeliculas("movie", "discover/movie", "with_genres=28", "Peliculas de acción","action", "2", "actionSlider");
 cargarPeliculas("tv", "discover/tv", "with_networks=213", "Tendencias","trends", "3", "trendsSlider");
 cargarPeliculas("movie", "discover/movie", "with_genres=35&page=4", "Comedias","comedia", "4", "comediaSlider");

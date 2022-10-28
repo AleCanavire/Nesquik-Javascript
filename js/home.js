@@ -119,11 +119,16 @@ account.addEventListener('mouseover', ()=>{
             <a href="../index.html">Cerrar sesión en Nesquik</a>
         </div>`
         account.appendChild(accountMenu);
+        accountMenu.clientHeight
         accountMenu.style.opacity = "1";
     }
     const accountMenu = document.querySelector('.accountMenu');
     accountMenu.addEventListener('mouseleave', ()=>{
-        accountMenu.remove();
+        accountMenu.style.opacity = "0";
+        setTimeout(() => {
+            accountMenu.remove();
+        }, 150);
+        
     })
 })
 

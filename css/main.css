@@ -846,10 +846,13 @@
     background: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 300ms;
     display: flex;
     justify-content: center;
-    overflow-y: auto;
-    align-items: baseline; }
+    align-items: baseline;
+    overflow-y: auto; }
     .home-body .bgInfo::-webkit-scrollbar {
       display: none; }
     .home-body .bgInfo .movieInfo {
@@ -861,7 +864,11 @@
       z-index: 20;
       border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.75); }
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.75);
+      opacity: 0;
+      transform: scale(0.9);
+      transition-property: opacity, transform;
+      transition-duration: 300ms; }
       .home-body .bgInfo .movieInfo .imgInfo {
         position: relative;
         width: 100%; }
@@ -876,7 +883,8 @@
           position: relative;
           z-index: 2;
           opacity: 1;
-          transition: opacity 0.5s ease-in-out; }
+          transition-property: opacity;
+          transition-duration: 500ms; }
         .home-body .bgInfo .movieInfo .imgInfo .logoBtns {
           position: absolute;
           margin: 0 0 45px 45px;
@@ -1199,6 +1207,10 @@
             color: #777;
             font-size: 14px;
             line-height: 20px; }
+
+@media screen and (max-width: 1280px) {
+  .nav-links a {
+    font-size: 1vw !important; } }
 
 .index-body {
   font-family: 'Roboto', sans-serif;
