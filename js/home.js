@@ -204,6 +204,21 @@ function onPlayerStateChange(event) {
             mainOverview.style.opacity = '0';
         }, 4500);
 
+        // ----- REAPARECER BACKDROP CUANDO TERMINA -----
+        setTimeout(function(){
+            const backdrop = document.querySelector('.backdropHero');
+            backdrop.style.opacity = null;
+            backdrop.style.opacity = '1';
+            const mainLogo = document.querySelector('.mainLogo');
+            mainLogo.style.transform = null;
+            mainLogo.style.transform = 'scale(1.0) translate3d(0, 0, 0)';
+            const mainOverview = document.querySelector('.mainOverview');
+            mainOverview.style.transform = null;
+            mainOverview.style.opacity = null;
+            mainOverview.style.transform = 'scale(1.0)';
+            mainOverview.style.opacity = '1';
+        },120000)
+        // ----- MUTE BUTTON -----
         const sound = document.getElementById('sound');
         sound.addEventListener('click', () => {
             if (player.isMuted() == false){
@@ -238,18 +253,4 @@ function onPlayerStateChange(event) {
             }, 4500);
         })
     }
-    // ----- REAPARECER BACKDROP CUANDO TERMINA -----
-    setTimeout(function(){
-        const backdrop = document.querySelector('.backdropHero');
-        backdrop.style.opacity = null;
-        backdrop.style.opacity = '1';
-        const mainLogo = document.querySelector('.mainLogo');
-        mainLogo.style.transform = null;
-        mainLogo.style.transform = 'scale(1.0) translate3d(0, 0, 0)';
-        const mainOverview = document.querySelector('.mainOverview');
-        mainOverview.style.transform = null;
-        mainOverview.style.opacity = null;
-        mainOverview.style.transform = 'scale(1.0)';
-        mainOverview.style.opacity = '1';
-    },120000)
 }
