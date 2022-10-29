@@ -23,9 +23,13 @@ const filtrar = async(text) => {
     });
     const movies = document.getElementsByClassName('pelicula');
     for (let i = 0; i < movies.length; i++) {
-        movies[i].addEventListener('click', (e) => {
+        movies[i].addEventListener('click', async(e) => {
             const id = e.currentTarget.getAttribute('id');
-            getInfo("movie", id);
+            await getInfo("movie", id);
+            movieInfo.clientHeight
+            movieInfo.style.opacity = "1";
+            movieInfo.style.transform = "scale(1.0)";
+            bgInfo.style.opacity = "1";
         })
     }
     if (container.innerHTML === "") {
@@ -166,8 +170,12 @@ const mainInfo = async(type, id) => {
     
         // ----- MORE INFO -----
         const moreInfo = document.getElementById('moreInfo');
-        moreInfo.addEventListener('click', () => {
-            getInfo(type, id)
+        moreInfo.addEventListener('click', async() => {
+            await getInfo(type, id);
+            movieInfo.clientHeight
+            movieInfo.style.opacity = "1";
+            movieInfo.style.transform = "scale(1.0)";
+            bgInfo.style.opacity = "1";
         })
     } catch (error) {
         console.log('Error', error);
