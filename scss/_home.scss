@@ -699,15 +699,15 @@
                         height: 40px;
                         border-radius: 50%;
                         margin: 0.25em;
-                        background-color: rgba(42,42,42,.6);
+                        background-color: rgba(42, 42, 42, .6);
                         border: 2px solid rgba(255, 255, 255, 0.5);
                         &:hover{
                             border: 2px solid rgb(255, 255, 255);
                             cursor: pointer;
                         }
-                        svg{
-                            width: 20px;
-                            height: 20px;
+                        img{
+                            width: 16px;
+                            height: 16px;
                             position: absolute;
                             top: 50%;
                             left: 50%;

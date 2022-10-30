@@ -932,9 +932,9 @@
             .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista:hover {
               border: 2px solid white;
               cursor: pointer; }
-            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista svg {
-              width: 20px;
-              height: 20px;
+            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista img {
+              width: 16px;
+              height: 16px;
               position: absolute;
               top: 50%;
               left: 50%;
