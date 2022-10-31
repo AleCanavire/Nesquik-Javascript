@@ -932,13 +932,44 @@
             .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista:hover {
               border: 2px solid white;
               cursor: pointer; }
-            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista img {
+            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .imgList {
+              box-sizing: initial;
+              padding: 12px;
               width: 16px;
               height: 16px;
               position: absolute;
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%); }
+              .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .imgList:hover ~ .listText {
+                opacity: 1; }
+            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .listText {
+              position: absolute;
+              top: 0;
+              left: 50%;
+              width: 170px;
+              height: 35px;
+              border-radius: 3px;
+              background-color: #e6e6e6;
+              transform: translate(-50%, -150%);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              opacity: 0; }
+              .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .listText ::after {
+                content: "";
+                width: 0;
+                height: 0;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                border-top: 18px solid #e6e6e6;
+                border-left: 18px solid transparent;
+                border-right: 18px solid transparent; }
+              .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .listText span {
+                color: #181818;
+                font-size: 18px; }
           .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate {
             position: relative;
             border-radius: 50%;
@@ -1170,9 +1201,11 @@
                   .home-body .bgInfo .movieInfo .info .similar .titlesContainer .similarTitles .titleCard .titleMeta .metaR:hover {
                     border: 2px solid white;
                     cursor: pointer; }
-                  .home-body .bgInfo .movieInfo .info .similar .titlesContainer .similarTitles .titleCard .titleMeta .metaR svg {
-                    width: 20px;
-                    height: 20px;
+                  .home-body .bgInfo .movieInfo .info .similar .titlesContainer .similarTitles .titleCard .titleMeta .metaR img {
+                    box-sizing: initial;
+                    width: 16px;
+                    height: 16px;
+                    padding: 12px;
                     position: absolute;
                     top: 50%;
                     left: 50%;

@@ -705,13 +705,48 @@
                             border: 2px solid rgb(255, 255, 255);
                             cursor: pointer;
                         }
-                        img{
+                        .imgList{
+                            box-sizing: initial;
+                            padding: 12px;
                             width: 16px;
                             height: 16px;
                             position: absolute;
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
+                            &:hover ~ .listText{
+                                opacity: 1;
+                            }
+                        }
+                        .listText{
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            width: 170px;
+                            height: 35px;
+                            border-radius: 3px;
+                            background-color: #e6e6e6;
+                            transform: translate(-50%, -150%);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            opacity: 0;
+                            ::after{
+                                content: "";
+                                width: 0;
+                                height: 0;
+                                position: absolute;
+                                bottom: 0;
+                                left: 50%;
+                                transform: translate(-50%, 50%);
+                                border-top: 18px solid rgb(230, 230, 230);
+                                border-left: 18px solid transparent;
+                                border-right: 18px solid transparent;
+                            }
+                            span{
+                                color: rgb(24, 24, 24);
+                                font-size: 18px;
+                            }
                         }
                     }
                     .rate{
@@ -987,9 +1022,11 @@
                                             border: 2px solid rgb(255, 255, 255);
                                             cursor: pointer;
                                         }
-                                        svg{
-                                            width: 20px;
-                                            height: 20px;
+                                        img{
+                                            box-sizing: initial;
+                                            width: 16px;
+                                            height: 16px;
+                                            padding: 12px;
                                             position: absolute;
                                             top: 50%;
                                             left: 50%;
