@@ -201,9 +201,6 @@ function onYouTubeIframeAPIReady() {
 }
 function onPlayerReady(event) {
     event.target.playVideo();
-}
-
-function onPlayerStateChange(event) {
     // ----- MUTE BUTTON -----
     const sound = document.getElementById('sound');
     sound.addEventListener('click', () => {
@@ -219,7 +216,9 @@ function onPlayerStateChange(event) {
             `
         }
     })
-    
+}
+
+function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         // ----- TRANSITION BACKDROP HERO -----
         setTimeout(function(){
