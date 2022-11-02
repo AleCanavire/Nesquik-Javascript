@@ -911,7 +911,7 @@
             padding: 9px 19px;
             border: none;
             border-radius: 5px;
-            margin: 0.25em; }
+            margin: 0.25em 0; }
             .home-body .bgInfo .movieInfo .imgInfo .logoBtns .reproducir:hover {
               background-color: #e6e6e6 !important;
               cursor: pointer; }
@@ -926,7 +926,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            margin: 0.25em;
+            margin: .25em .4em .25em .8em;
             background-color: rgba(42, 42, 42, 0.6);
             border: 2px solid rgba(255, 255, 255, 0.5); }
             .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista:hover {
@@ -942,7 +942,8 @@
               left: 50%;
               transform: translate(-50%, -50%); }
               .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .imgList:hover ~ .listText {
-                opacity: 1; }
+                opacity: 1;
+                visibility: visible; }
             .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .listText {
               position: absolute;
               top: 0;
@@ -955,7 +956,8 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              opacity: 0; }
+              opacity: 0;
+              visibility: hidden; }
               .home-body .bgInfo .movieInfo .imgInfo .logoBtns .miLista .listText ::after {
                 content: "";
                 width: 0;
@@ -973,7 +975,7 @@
           .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate {
             position: relative;
             border-radius: 50%;
-            margin: 0.25em;
+            margin: .25em .4em;
             width: 40px;
             height: 40px;
             background-color: rgba(42, 42, 42, 0.6);
@@ -981,13 +983,84 @@
             .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate:hover {
               border: 2px solid white;
               cursor: pointer; }
-            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate svg {
-              width: 20px;
-              height: 20px;
+            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .yourRate {
+              width: 100%;
+              height: 100%; }
+              .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .yourRate:hover + .scores {
+                opacity: 1;
+                visibility: visible; }
+              .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .yourRate img {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); }
+            .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores {
+              display: flex;
+              align-items: center;
               position: absolute;
               top: 50%;
               left: 50%;
-              transform: translate(-50%, -50%); }
+              transform: translate(-50%, -50%);
+              background-color: #232323;
+              border-radius: 30px;
+              padding: 9.5px;
+              cursor: default;
+              opacity: 0;
+              visibility: hidden;
+              transition-property: opacity, visibility;
+              transition-duration: 300ms; }
+              .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores:hover {
+                opacity: 1;
+                visibility: visible; }
+              .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores .score {
+                position: relative;
+                width: 40px;
+                height: 40px;
+                margin: 0 .25em;
+                border-radius: 50%;
+                background-color: transparent;
+                cursor: pointer; }
+                .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores .score:hover {
+                  background-color: rgba(128, 128, 128, 0.2); }
+                .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores .score:hover > .listText {
+                  opacity: 1;
+                  visibility: visible; }
+                .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores .score img {
+                  box-sizing: initial;
+                  width: 25px;
+                  height: 25px;
+                  padding: 7.5px; }
+                .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores .score .listText {
+                  position: absolute;
+                  top: 0;
+                  left: 50%;
+                  width: 145px;
+                  height: 35px;
+                  margin: 0;
+                  border-radius: 3px;
+                  background-color: #e6e6e6;
+                  transform: translate(-50%, -150%);
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  opacity: 0;
+                  visibility: hidden; }
+                  .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores .score .listText ::after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, 100%);
+                    border-top: 10px solid #e6e6e6;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent; }
+                  .home-body .bgInfo .movieInfo .imgInfo .logoBtns .rate .scores .score .listText span {
+                    color: #181818;
+                    font-size: 18px; }
         .home-body .bgInfo .movieInfo .imgInfo .exit {
           width: 36px;
           height: 36px;
