@@ -183,6 +183,32 @@ const mainInfo = async(type, id) => {
 }
 mainInfo("tv", "209167");
 
+// ----- TRANSITION BACKDROP HERO -----
+setTimeout(function(){
+    const backdrop = document.querySelector('.backdropHero');
+    backdrop.style.opacity = '0';
+    const mainLogo = document.querySelector('.mainLogo');
+    mainLogo.style.transform = 'scale(0.7) translate3d(0, 8vw, 0)';
+    const mainOverview = document.querySelector('.mainOverview');
+    mainOverview.style.transform = 'scale(0.0)';
+    mainOverview.style.opacity = '0';
+}, 4500);
+
+// ----- REAPARECER BACKDROP CUANDO TERMINA -----
+setTimeout(function(){
+    const backdrop = document.querySelector('.backdropHero');
+    backdrop.style.opacity = null;
+    backdrop.style.opacity = '1';
+    const mainLogo = document.querySelector('.mainLogo');
+    mainLogo.style.transform = null;
+    mainLogo.style.transform = 'scale(1.0) translate3d(0, 0, 0)';
+    const mainOverview = document.querySelector('.mainOverview');
+    mainOverview.style.transform = null;
+    mainOverview.style.opacity = null;
+    mainOverview.style.transform = 'scale(1.0)';
+    mainOverview.style.opacity = '1';
+},120000)
+
 // ----- YOUTUBE API -----
 var tag = document.createElement('script');
 
@@ -219,33 +245,6 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING) {
-        // ----- TRANSITION BACKDROP HERO -----
-        setTimeout(function(){
-            const backdrop = document.querySelector('.backdropHero');
-            backdrop.style.opacity = '0';
-            const mainLogo = document.querySelector('.mainLogo');
-            mainLogo.style.transform = 'scale(0.7) translate3d(0, 8vw, 0)';
-            const mainOverview = document.querySelector('.mainOverview');
-            mainOverview.style.transform = 'scale(0.0)';
-            mainOverview.style.opacity = '0';
-        }, 4500);
-
-        // ----- REAPARECER BACKDROP CUANDO TERMINA -----
-        setTimeout(function(){
-            const backdrop = document.querySelector('.backdropHero');
-            backdrop.style.opacity = null;
-            backdrop.style.opacity = '1';
-            const mainLogo = document.querySelector('.mainLogo');
-            mainLogo.style.transform = null;
-            mainLogo.style.transform = 'scale(1.0) translate3d(0, 0, 0)';
-            const mainOverview = document.querySelector('.mainOverview');
-            mainOverview.style.transform = null;
-            mainOverview.style.opacity = null;
-            mainOverview.style.transform = 'scale(1.0)';
-            mainOverview.style.opacity = '1';
-        },120000)
-    }
     // ----- RESTART BUTTON -----
     if (event.data == YT.PlayerState.ENDED) {
         const sound = document.getElementById('sound');
