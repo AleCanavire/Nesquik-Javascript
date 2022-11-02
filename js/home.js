@@ -262,6 +262,19 @@ function onPlayerStateChange(event) {
                 mainOverview.style.transform = 'scale(0.0)';
                 mainOverview.style.opacity = '0';
             }, 4500);
+            setTimeout(function(){
+                const backdrop = document.querySelector('.backdropHero');
+                backdrop.style.opacity = null;
+                backdrop.style.opacity = '1';
+                const mainLogo = document.querySelector('.mainLogo');
+                mainLogo.style.transform = null;
+                mainLogo.style.transform = 'scale(1.0) translate3d(0, 0, 0)';
+                const mainOverview = document.querySelector('.mainOverview');
+                mainOverview.style.transform = null;
+                mainOverview.style.opacity = null;
+                mainOverview.style.transform = 'scale(1.0)';
+                mainOverview.style.opacity = '1';
+            },120000)
         })
     }
 }
